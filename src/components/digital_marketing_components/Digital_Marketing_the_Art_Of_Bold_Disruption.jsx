@@ -1,8 +1,10 @@
 import React from "react";
 import sample11111 from "../../assets/sample11111.png";
-import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Digital_Marketing_the_Art_Of_Bold_Disruption = () => {
+  let navigate = useNavigate();
+
   let cardData = [
     {
       cardTitle: "Brand Identity Design",
@@ -86,6 +88,35 @@ const Digital_Marketing_the_Art_Of_Bold_Disruption = () => {
   //   };
   // }, []);
 
+  function onClickFindOutMore(title) {
+    if (title === "UI and UX Design") {
+      navigate("/uianduxdesign");
+
+      window.scrollTo({
+        top: 0,
+        behavior: "instant",
+      });
+    }
+
+    if (title === "Digital Design") {
+      navigate("/digitaldesign");
+
+      window.scrollTo({
+        top: 0,
+        behavior: "instant",
+      });
+    }
+
+    if (title === "Brand Identity Design") {
+      navigate("/brandidentitydesign");
+
+      window.scrollTo({
+        top: 0,
+        behavior: "instant",
+      });
+    }
+  }
+
   return (
     <section className="mt-32 px-20">
       <div className="flex items-center justify-between">
@@ -108,7 +139,10 @@ const Digital_Marketing_the_Art_Of_Bold_Disruption = () => {
               <p className="text-6xl ">{item.cardTitle}</p>
               <p className="text-xl text-gray-600">{item.cardDescription}</p>
 
-              <button className="px-8 py-3 border-2 text-gray-500 rounded-full text-xl border-gray-500">
+              <button
+                onClick={() => onClickFindOutMore(item.cardTitle)}
+                className="px-8 py-3 border-2 text-gray-500 rounded-full text-xl border-gray-500"
+              >
                 Find out more
               </button>
             </div>

@@ -4,6 +4,7 @@ import { IoMdArrowRoundForward } from "react-icons/io";
 import our_services_image1 from "../../assets/our_services_image1.png";
 import our_services_image2 from "../../assets/our_services_image2.png";
 import home_our_services_video from "../../assets/Video/home_our_services_video.mp4";
+import xx from "../../assets/Video/xx.mp4";
 import sample from "../../assets/Video/sample.mp4";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -27,19 +28,63 @@ function Home_Our_Services() {
             start: "top top", // Trigger when the element's top hits the viewport top
             end: "+=600", // Adjust this value to match the desired pin duration in pixels
             scrub: 3, // Smooth scrubbing for the pin duration
-            pin: !isLast, // Pin all but the last element
-
-            markers: false, // Set true if you want to debug triggers
+            // pin: !isLast, // Pin all but the last element
+            pin: true, // Pin all but the last element
           },
         })
         .to(trigger, {
           opacity: 0, // Fade out the element
           y: 100, // Move element downward
           scale: 0.9, // Shrink the element's size while scrolling
-          duration: 2,
+          duration: 1,
         });
     });
 
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
+  useEffect(() => {
+    gsap.fromTo(
+      "#video",
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 5, // Adjusted for a smoother transition
+        delay: 2,
+        ease: "back.in", // Smooth easing function
+        scrollTrigger: {
+          trigger: "#video", // Target the video element
+          start: "top center", // Animation starts when the top of the video is 80% visible
+          end: "top 90%", // Animation ends when the top of the video is 20% visible
+          scrub: 3, // Smooth, responsive animation based on scroll
+        },
+      }
+    );
+  }, []);
+
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: "#home-services-section", // Target the section
+      start: "top center",
+      onEnter: () => {
+        gsap.to("#home-services-section", {
+          backgroundColor: "#8b5cf6", // New background color
+          duration: 1, // Instantly apply the background color
+          color: "white",
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to("#home-services-section", {
+          backgroundColor: "white", // Revert to the original background color
+          duration: 1, // Instantly revert
+          color: "black",
+        });
+      },
+    });
+
+    // Clean up ScrollTrigger instances on unmount
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
@@ -73,48 +118,50 @@ function Home_Our_Services() {
     };
   }, []);
 
-  useEffect(() => {
-    gsap.fromTo(
-      "#video",
-      { opacity: 0 },
-      {
-        opacity: 1,
-        duration: 2, // Adjusted for a smoother transition
-        ease: "back.in", // Smooth easing function
-        scrollTrigger: {
-          trigger: "#video", // Target the video element
-          start: "top center", // Animation starts when the top of the video is 80% visible
-          end: "top 90%", // Animation ends when the top of the video is 20% visible
-          scrub: 2, // Smooth, responsive animation based on scroll
-        },
-      }
-    );
-  }, []);
-
   function onClickCard(title) {
     if (title === "Digital Marketing") {
       navigate("/digitalmarketing");
       window.scrollTo({
-        top: document.body.scrollHeight, // Scroll to the bottom of the page
+        // top: document.body.scrollHeight, // Scroll to the bottom of the page
+        top: 0,
+        behavior: "instant",
+      });
+    }
+
+    if (title === "Creative Design") {
+      navigate("/creativedesign");
+      window.scrollTo({
+        top: 0,
+        behavior: "instant",
+      });
+    }
+
+    if (title === "Video Production") {
+      navigate("/videoproduction");
+      window.scrollTo({
+        top: 0,
         behavior: "instant",
       });
     }
   }
 
   return (
-    <section className="px-32 py-20 bg-gray-100 overflow-x-hidden">
+    <section
+      id="home-services-section"
+      className="px-32 py-20  overflow-x-hidden"
+    >
       <div className="services flex items-center justify-between">
-        <div className="flex flex-col text-7xl font-semibold">
+        <div className="flex flex-col text-7xl  font-semibold">
           <p>OUR</p>
           <p className="ms-12">SERVICES</p>
         </div>
 
-        <div className="h-24 w-24 relative rounded-full bg-gradient-to-b from-violet-800 to-violet-500">
-          <GoArrowUpRight className="absolute w-full h-full p-3 text-white" />
+        <div className="h-24 w-24 relative rounded-full bg-white">
+          <GoArrowUpRight className="absolute w-full h-full p-3 text-violet-500" />
         </div>
       </div>
 
-      <div className="flex flex-col gap-14 mt-16">
+      <div className="flex flex-col gap-14 mt-44 mb-20">
         {[
           {
             title: "Creative Design",
@@ -158,7 +205,7 @@ function Home_Our_Services() {
         ].map((service, index) => (
           <div
             key={index}
-            className="service-item h-[90vh]  flex justify-between gap-10 items-center bg-white px-14 py-5 rounded-3xl"
+            className="service-item h-[90vh] text-black  flex justify-between gap-10 items-center bg-white px-14 py-5 rounded-3xl"
           >
             <div className="flex flex-col gap-10  basis-[55%] justify-between">
               <div className="flex flex-col text-6xl">
@@ -171,26 +218,33 @@ function Home_Our_Services() {
                 {service.tags.map((tag, i) => (
                   <p
                     key={i}
-                    className="border-2 border-gray-800 rounded-full px-5 py-2 text-gray-600"
+                    className="border-2 border-gray-800 cursor-pointer hover:text-violet-800 hover:border-violet-800  rounded-full  transition-all ease-in-out duration-150 shadow-black px-5 py-2 text-gray-600"
                   >
                     {tag}
                   </p>
                 ))}
               </div>
+
               <p className="text-gray-600">{service.description}</p>
 
-              <p
+              <button
                 onClick={() => onClickCard(service.title)}
-                className="border-2 cursor-pointer w-fit inline-block border-gray-800 rounded-full px-8 py-2 text-gray-600"
+                class="border  text-xl text-gray-50  duration-300 relative group cursor-pointer   overflow-hidden h-14  w-52 px-8 rounded-2xl bg-neutral-800 p-2  hover:bg-gray-700 "
               >
-                Find out more{" "}
-                <IoMdArrowRoundForward className="inline-block " />
-              </p>
+                <div class="absolute group-hover:-top-1 group-hover:-right-2 z-10 w-16 h-16 rounded-full group-hover:scale-150  duration-700 right-12 top-12 bg-yellow-500"></div>
+                <div class="absolute group-hover:-top-1 group-hover:-right-2 z-10 w-12 h-12 rounded-full group-hover:scale-150  duration-700 right-20 -top-6 bg-orange-500"></div>
+                <div class="absolute group-hover:-top-1 group-hover:-right-2 z-10 w-8 h-8   rounded-full group-hover:scale-150  duration-700 right-32 top-6 bg-pink-500"></div>
+                <div class="absolute group-hover:-top-1 group-hover:-right-2 z-10 w-4 h-4   rounded-full group-hover:scale-150  duration-700 right-2 top-12 bg-red-600"></div>
+                <p class="z-10 absolute flex items-center gap-2 text-center justify-center w-fit bottom-3 ">
+                  {" "}
+                  Find out more
+                </p>
+              </button>
             </div>
 
             <video
-              className=" h-full rounded-tr-[200px]"
-              src={sample}
+              className=" h-full w-[500px] rounded-tr-[200px]"
+              src={xx}
               autoPlay
               loop
               muted
@@ -200,7 +254,7 @@ function Home_Our_Services() {
         ))}
       </div>
 
-      <div id="video" className="relative w-[80vw] h-[400px] mt-16 rounded-3xl">
+      <div id="video" className="relative w-[80vw] h-[400px] mt-72 rounded-3xl">
         <video
           className="absolute object-cover w-full h-full rounded-3xl "
           src={home_our_services_video}

@@ -120,7 +120,7 @@ function Home_How_Can_I_Assist_You() {
         {/* Text Options */}
         <div
           id="box"
-          className="flex justify-center items-center flex-wrap px-14 my-10"
+          className="flex justify-center items-center flex-wrap px-16 my-10"
         >
           {[
             "USER EXPERIENCE",

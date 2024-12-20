@@ -3,13 +3,46 @@ import Home_Insights_Updates_image1 from "../../assets/Home_Insights_Updates_ima
 import { FaRegCalendar } from "react-icons/fa";
 import Home_Insights_Updates_video from "../../assets/Video/Home_Insights_Updates_video.mp4";
 import sample_video from "../../assets/Video/sample.mp4";
+import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Home_Insights_Updates() {
+  // 8A3324
+
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: "#home-insights-updates-section", // Target the section
+      start: "top center",
+      onEnter: () => {
+        gsap.to("#home-insights-updates-section", {
+          backgroundColor: "#8b5cf6", // New background color
+          duration: 1, // Instantly apply the background color
+          color: "white",
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to("#home-insights-updates-section", {
+          backgroundColor: "white", // Revert to the original background color
+          duration: 1, // Instantly revert
+          color: "black",
+        });
+      },
+    });
+
+    // Clean up ScrollTrigger instances on unmount
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
   return (
-    <section className="px-32 py-20">
+    <section id="home-insights-updates-section" className="px-32 py-20">
       <div className="flex justify-between items-center">
         <p className="text-6xl  basis-[35%]">Insights & Updates</p>
-        <p className="basis-[23%] text-gray-600 text-lg">
+        <p className="basis-[23%]  text-lg">
           Our creativity knows no bounds. We create bold, daring campaigns that
           grab attention, leaving a lasting impact on your audience.
         </p>
@@ -29,9 +62,9 @@ function Home_Insights_Updates() {
 
           <p className="text-3xl">The Journey of Creative Brilliance</p>
           <div className="flex gap-2 items-center">
-            <FaRegCalendar className="inline-block text-gray-500" />
+            <FaRegCalendar className="inline-block " />
 
-            <p className="text-gray-500"> July 22, 2024</p>
+            <p> July 22, 2024</p>
           </div>
         </div>
 
@@ -54,7 +87,7 @@ function Home_Insights_Updates() {
             <div className="flex justify-center flex-col gap-5">
               <div className="flex gap-3 items-center">
                 <FaRegCalendar />
-                <p className="text-gray-500">July 22, 2024</p>
+                <p>July 22, 2024</p>
               </div>
 
               <p className="text-4xl">The Art of Bold Creative Solutions</p>
@@ -62,11 +95,6 @@ function Home_Insights_Updates() {
           </div>
 
           <div className="flex gap-5">
-            {/* <img
-              src={Home_Insights_Updates_image1}
-              className="w-72 h-64"
-              alt=""
-            /> */}
             <video
               className="w-72 h-64 rounded-3xl  object-cover"
               src={sample_video}
@@ -124,7 +152,7 @@ function Home_Insights_Updates() {
               placeholder="Enter Your Email"
             />
 
-            <button className="bg-white px-5 py-3  rounded font-bold">
+            <button className="bg-white px-5 py-3 text-black rounded font-bold">
               Get Started
             </button>
           </div>

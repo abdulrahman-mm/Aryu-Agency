@@ -1,10 +1,9 @@
 import React from "react";
-import The_Art_of_Bold_Disruption2_image1 from "../../assets/The_Art_of_Bold_Disruption2_image1.png";
-import The_Art_of_Bold_Disruption2_image2 from "../../assets/The_Art_of_Bold_Disruption2_image2.png";
 import home_The_Art_of_Bold_Disruption_video from "../../assets/Video/home_The_Art_of_Bold_Disruption_video.mp4";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import gsap from "gsap";
 import { useEffect } from "react";
+import sample from "../../assets/Video/sample.mp4";
 
 function Home_The_Art_Of_Bold_Disruption2() {
   useEffect(() => {
@@ -13,8 +12,6 @@ function Home_The_Art_Of_Bold_Disruption2() {
         trigger: "#text-div p",
         start: "bottom bottom", // Starts animation when the video div is 80% in view
         end: "bottom 20%", // Ends animation when the video div is 20% in view
-        // toggleActions: "play play play play", // Plays only once
-    
       },
     });
 
@@ -22,12 +19,19 @@ function Home_The_Art_Of_Bold_Disruption2() {
       .fromTo(
         "#text-div p",
         { opacity: 0, x: 50 },
-        { opacity: 1, x: 0, stagger: 0.5, duration: 1, ease: "power2.out",delay:1 }
+        {
+          opacity: 1,
+          x: 0,
+          stagger: 0.5,
+          duration: 1,
+          ease: "power2.out",
+          delay: 1,
+        }
       )
       .fromTo(
         "#text-div .flex",
         { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
+        { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
       );
   }, []);
 
@@ -37,14 +41,31 @@ function Home_The_Art_Of_Bold_Disruption2() {
 
       <div className="flex items-start justify-between gap-8 my-16">
         <div className="flex flex-col gap-5">
-          <img src={The_Art_of_Bold_Disruption2_image1} alt="" />
+          {/* <img src={The_Art_of_Bold_Disruption2_image1} alt="" /> */}
+          <video
+            className="w-72 rounded-2xl h-22 object-cover"
+            src={sample}
+            playsInline
+            loop
+            autoPlay
+            muted
+          ></video>
           <p className="text-xl text-gray-600">
             We don't just create campaigns
           </p>
         </div>
 
         <div className="flex flex-col gap-5">
-          <img src={The_Art_of_Bold_Disruption2_image1} alt="" />
+          {/* <img src={The_Art_of_Bold_Disruption2_image1} alt="" /> */}
+          <video
+            className="w-72 rounded-2xl h-22 object-cover"
+            src={sample}
+            playsInline
+            loop
+            autoPlay
+            muted
+          ></video>
+
           <p className="text-xl text-gray-600">
             Your vision deserves to be heard.
           </p>
@@ -56,11 +77,14 @@ function Home_The_Art_Of_Bold_Disruption2() {
           <p className="text-2xl italic text-gray-500">Impact</p>
         </div>
 
-        <img
-          className="object-contain"
-          src={The_Art_of_Bold_Disruption2_image2}
-          alt=""
-        />
+        <video
+          className="w-96 rounded-2xl h-72  object-cover"
+          src={sample}
+          playsInline
+          loop
+          autoPlay
+          muted
+        ></video>
       </div>
 
       <div className="relative h-[500px]  rounded-3xl">

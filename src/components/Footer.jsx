@@ -1,6 +1,7 @@
 import footer_video from "../assets/Video/footer_video.mp4";
 import aryu_logo from "../assets/aryu_logo.png";
 
+
 function Footer() {
   const logos = Array(5).fill(aryu_logo); // Replace with actual image paths
 
@@ -26,7 +27,6 @@ function Footer() {
                 className="w-60 h-32 object-cover flex-shrink-0 mr-4"
               />
             ))}
-            {/* Duplicate for seamless looping */}
             {logos.map((logo, index) => (
               <img
                 key={index + logos.length}
@@ -35,7 +35,6 @@ function Footer() {
                 className="w-60 h-32 object-cover flex-shrink-0 mr-4"
               />
             ))}
-            {/* Duplicate for seamless looping */}
             {logos.map((logo, index) => (
               <img
                 key={index + logos.length}

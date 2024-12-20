@@ -1,4 +1,3 @@
-import React from "react";
 import From_Concepts_To_Conversions_Hero_img1 from "../../assets/From_Concepts_To_Conversions_Hero_img1.png";
 import From_Concepts_To_Conversions_Hero_img2 from "../../assets/From_Concepts_To_Conversions_Hero_img2.png";
 import From_Concepts_To_Conversions_Hero_img3 from "../../assets/From_Concepts_To_Conversions_Hero_img3.png";
@@ -20,7 +19,7 @@ const Digital_Marketing_Hero = () => {
         <div className="w-72 h-72 bg-gray-300 rounded-full"></div>
       </div>
 
-      <div className="flex justify-center items-center flex-wrap  my-16">
+      <div className="flex justify-center items-center flex-wrap   my-16">
         {[
           "Graphic Design",
           "Content Creation",

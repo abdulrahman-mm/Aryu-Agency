@@ -7,13 +7,10 @@ import Footer from "../components/Footer";
 const DigitalMarketing = () => {
   return (
     <div>
-      <Footer />
-      <Digital_Marketing_the_Art_Of_Bold_Disruption />
-      <Digital_Marketing_Hero />
       <Header />
-
-
-
+      <Digital_Marketing_Hero />
+      <Digital_Marketing_the_Art_Of_Bold_Disruption />
+      <Footer />
     </div>
   );
 };
