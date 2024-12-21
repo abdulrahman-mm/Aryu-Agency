@@ -49,38 +49,38 @@ function Home_How_Can_I_Assist_You() {
     );
   }, []);
 
-  useEffect(() => {
-    const elements = document.querySelectorAll("#box > p");
+  // useEffect(() => {
+  //   const elements = document.querySelectorAll("#box > p");
 
-    elements.forEach((el) => {
-      el.addEventListener("mouseenter", () => {
-        gsap.to(el, {
-          rotate: -6,
-          duration: 0.3,
-          scale: 1.1,
-          ease: "power2.out",
-          zIndex: 10,
-        });
-      });
+  //   elements.forEach((el) => {
+  //     el.addEventListener("mouseenter", () => {
+  //       gsap.to(el, {
+  //         rotate: -1,
+  //         duration: 0.3,
+  //         scale: 1.1,
+  //         ease: "power2.out",
+  //         zIndex: 10,
+  //       });
+  //     });
 
-      el.addEventListener("mouseleave", () => {
-        gsap.to(el, {
-          rotate: 0,
-          duration: 0.3,
-          scale: 1,
-          ease: "power2.out",
-          zIndex: 2,
-        });
-      });
-    });
+  //     el.addEventListener("mouseleave", () => {
+  //       gsap.to(el, {
+  //         rotate: 0,
+  //         duration: 0.3,
+  //         scale: 1,
+  //         ease: "power2.out",
+  //         zIndex: 2,
+  //       });
+  //     });
+  //   });
 
-    return () => {
-      elements.forEach((el) => {
-        el.removeEventListener("mouseenter", null);
-        el.removeEventListener("mouseleave", null);
-      });
-    };
-  }, []);
+  //   return () => {
+  //     elements.forEach((el) => {
+  //       el.removeEventListener("mouseenter", null);
+  //       el.removeEventListener("mouseleave", null);
+  //     });
+  //   };
+  // }, []);
 
   useEffect(() => {
     gsap.to("#assist-video", {
@@ -139,7 +139,7 @@ function Home_How_Can_I_Assist_You() {
           ].map((text, index) => (
             <p
               key={index}
-              className="px-14 py-4 hover:bg-purple-950 hover:text-white text-gray-600 border border-gray-300 rounded-3xl text-xl"
+              className="px-14 py-4 cursor-pointer hover:bg-purple-950 hover:text-white text-gray-600 border border-gray-300 rounded-3xl text-xl"
             >
               {text}
             </p>

@@ -19,7 +19,6 @@ function Home_Our_Services() {
     const triggers = document.querySelectorAll(".service-item");
 
     triggers.forEach((trigger, index) => {
-      const isLast = index === triggers.length - 1;
 
       gsap
         .timeline({
@@ -44,6 +43,38 @@ function Home_Our_Services() {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
+
+
+  useEffect(() => {
+    // Register ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Create animations for each card
+    const cards = document.querySelectorAll(".service-item");
+    cards.forEach((card, index) => {
+      gsap.fromTo(
+        card,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: card,
+            start: "top center+=100",
+            end: "bottom center",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+
+    // Clean up ScrollTrigger instances on unmount
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
 
   useEffect(() => {
     gsap.fromTo(
@@ -90,33 +121,33 @@ function Home_Our_Services() {
     };
   }, []);
 
-  useEffect(() => {
-    const triggers = document.querySelectorAll(".services");
+  // useEffect(() => {
+  //   const triggers = document.querySelectorAll(".services");
 
-    triggers.forEach((trigger, index) => {
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: trigger,
-            start: "top 50%", // Trigger when the element's top hits the viewport top
-            end: "+=600", // Adjust this value to match the desired pin duration in pixels
-            scrub: 3, // Smooth scrubbing for the pin duration
-            pin: false, // Pin all but the last element
-            markers: false, // Set true if you want to debug triggers
-          },
-        })
-        .to(trigger, {
-          opacity: 0, // Fade out the element
-          y: 100, // Move element downward
-          scale: 0.9, // Shrink the element's size while scrolling
-          duration: 2,
-        });
-    });
+  //   triggers.forEach((trigger, index) => {
+  //     gsap
+  //       .timeline({
+  //         scrollTrigger: {
+  //           trigger: trigger,
+  //           start: "top 50%", // Trigger when the element's top hits the viewport top
+  //           end: "+=600", // Adjust this value to match the desired pin duration in pixels
+  //           scrub: 3, // Smooth scrubbing for the pin duration
+  //           pin: false, // Pin all but the last element
+  //           markers: false, // Set true if you want to debug triggers
+  //         },
+  //       })
+  //       .to(trigger, {
+  //         opacity: 0, // Fade out the element
+  //         y: 100, // Move element downward
+  //         scale: 0.9, // Shrink the element's size while scrolling
+  //         duration: 2,
+  //       });
+  //   });
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
+  //   return () => {
+  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   };
+  // }, []);
 
   function onClickCard(title) {
     if (title === "Digital Marketing") {
@@ -218,7 +249,7 @@ function Home_Our_Services() {
                 {service.tags.map((tag, i) => (
                   <p
                     key={i}
-                    className="border-2 border-gray-800 cursor-pointer hover:text-violet-800 hover:border-violet-800  rounded-full  transition-all ease-in-out duration-150 shadow-black px-5 py-2 text-gray-600"
+                    className="border-2 hover:text-white border-gray-800 cursor-pointer hover:bg-violet-800 hover:border-violet-800  rounded-full  transition-all ease-in-out duration-150 shadow-black px-5 py-2 text-gray-600"
                   >
                     {tag}
                   </p>
@@ -229,7 +260,7 @@ function Home_Our_Services() {
 
               <button
                 onClick={() => onClickCard(service.title)}
-                class="border  text-xl text-gray-50  duration-300 relative group cursor-pointer   overflow-hidden h-14  w-52 px-8 rounded-2xl bg-neutral-800 p-2  hover:bg-gray-700 "
+                class="border  text-xl text-gray-50  font-semibold duration-300 relative group cursor-pointer   overflow-hidden h-14  w-52 px-8 rounded-2xl bg-[#8b5cf6] p-2  hover:bg-gray-700 "
               >
                 <div class="absolute group-hover:-top-1 group-hover:-right-2 z-10 w-16 h-16 rounded-full group-hover:scale-150  duration-700 right-12 top-12 bg-yellow-500"></div>
                 <div class="absolute group-hover:-top-1 group-hover:-right-2 z-10 w-12 h-12 rounded-full group-hover:scale-150  duration-700 right-20 -top-6 bg-orange-500"></div>
@@ -237,19 +268,19 @@ function Home_Our_Services() {
                 <div class="absolute group-hover:-top-1 group-hover:-right-2 z-10 w-4 h-4   rounded-full group-hover:scale-150  duration-700 right-2 top-12 bg-red-600"></div>
                 <p class="z-10 absolute flex items-center gap-2 text-center justify-center w-fit bottom-3 ">
                   {" "}
-                  Find out more
+                  FIND OUT MORE
                 </p>
               </button>
             </div>
 
-            <video
+            {/* <video
               className=" h-full w-[500px] rounded-tr-[200px]"
               src={xx}
               autoPlay
               loop
               muted
               playsInline
-            ></video>
+            ></video> */}
           </div>
         ))}
       </div>

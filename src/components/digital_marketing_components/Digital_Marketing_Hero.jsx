@@ -31,7 +31,7 @@ const Digital_Marketing_Hero = () => {
         ].map((text, index) => (
           <p
             key={index}
-            className="px-5 py-4 hover:text-violet-800 hover:border-violet-800 cursor-pointer text-gray-600 border border-gray-300 rounded-3xl text-xl"
+            className="px-4 py-4 hover:text-violet-800 hover:border-violet-800 cursor-pointer text-gray-600 border border-gray-300 rounded-3xl text-xl"
           >
             {text}
           </p>

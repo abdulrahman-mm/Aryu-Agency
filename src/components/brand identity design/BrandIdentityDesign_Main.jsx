@@ -1,58 +1,53 @@
-import sample11111 from "../../assets/sample11111.png";
+import sample11111 from "../../assets/sample11111.svg";
+import brandidentitydesign_businesscard from '../../assets/brandidentitydesign_businesscard.svg'
+import brandidentitydesign_idcard from '../../assets/brandidentitydesign_idcard.svg'
+import brandidentitydesign_letterhead from '../../assets/brandidentitydesign_letterhead.svg'
 
 const BrandIdentityDesign_Main = () => {
   let cardData = [
     {
-      cardTitle: "Dashboard Design",
+      cardTitle: "Logo Identity",
       cardDescription:
-        "Your vision deserves to be heard. We amplify your ideas with creative flair, turning them into a brand voice that commands attention.",
+        "The logo is the heart of your brand—it grabs attention and defines who you are. With our design services, we craft logos that capture your unique essence, making sure you shine in the market.",
       cardImage: sample11111,
     },
     {
-      cardTitle: "Mobile App Design",
+      cardTitle: "Business Card",
       cardDescription:
-        "Your vision deserves to be heard. We amplify your ideas with creative flair, turning them into a brand voice that commands attention.",
-      cardImage: sample11111,
+        "Your brand is powerfully introduced by your business card. At networking gatherings, we create appealing cards with simple information that leave a lasting impression.",
+      cardImage: brandidentitydesign_businesscard,
     },
     {
-      cardTitle: "Website Design",
+      cardTitle: "ID Card",
       cardDescription:
-        "Your vision deserves to be heard. We amplify your ideas with creative flair, turning them into a brand voice that commands attention.",
-      cardImage: sample11111,
+        "ID cards symbolize your brand's professionalism. They’re more than just IDs; they represent both your employees and the company. We design ID cards that reflect your company's values, boost security, and promote team pride.",
+      cardImage: brandidentitydesign_idcard,
     },
     {
       cardTitle: "Letterhead",
       cardDescription:
-        "Your vision deserves to be heard. We amplify your ideas with creative flair, turning them into a brand voice that commands attention.",
-      cardImage: sample11111,
+        "Letterhead is crucial for communication and reflects your company. It serves as a promotional tool and holds legal validity. We create custom letterheads that enhance your brand identity, ensuring every message is memorable.",
+      cardImage: brandidentitydesign_letterhead,
     },
   ];
   return (
     <section className="mt-32 px-20">
-      <div className="flex items-center justify-between">
-        <p className="text-6xl basis-[35%] font-semibold">Ui and Ux Design</p>
-
-        <p className="basis-[32%] text-gray-600 text-lg">
-          Your vision deserves to be heard. We amplify your ideas with creative
-          flair, turning them into a brand voice that commands attention.
-        </p>
-      </div>
+      
 
       <div className=" flex flex-col gap-5 mt-36">
         {cardData.map((item, index) => (
           <div
-            className={`bb flex ${index % 2 === 0 ? "" : "flex-row-reverse"} justify-between`}
-          >
-            <div className="basis-[30%] flex flex-col justify-center gap-10 items-start">
-              <p className="text-6xl ">{item.cardTitle}</p>
-              <p className="text-xl text-gray-600">{item.cardDescription}</p>
+            
 
-              <button
-                onClick={() => onClickFindOutMore(item.cardTitle)}
-                className="px-8 py-3 border-2 text-gray-500 rounded-full text-xl border-gray-500"
-              >
-                Find out more
-              </button>
+            className={` bg-white rounded-3xl gap-5 items-center my-8 px-10 py-10 flex ${
+              index % 2 === 0 ? "flex-row-reverse" : ""
+            } h-[90vh] justify-between`}
+          >
+            <div className="basis-[40%] flex flex-col justify-center gap-10 items-start">
+              <p className="text-5xl font-opensans font-semibold text-black">{item.cardTitle}</p>
+              <p className="text-xl font-poppins  text-gray-500">{item.cardDescription}</p>
+
+              
             </div>
 
             <img

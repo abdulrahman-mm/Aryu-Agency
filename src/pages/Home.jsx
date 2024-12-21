@@ -28,14 +28,14 @@ function Home() {
           scale: 0.5, // Start smaller
         },
         {
-          duration: 3,
+          duration:0,
           opacity: 1,
           scale: 2, // Slightly enlarge first
           ease: "power2.out",
         }
       )
       .to(".preloader-logo", {
-        duration: 2,
+        duration: 0,
         scale: 20, // Expand to a very large size
         opacity: 0, // Fade out smoothly
         ease: "power4.in",
@@ -59,9 +59,9 @@ function Home() {
         </div>
       ) : (
         <>
-          <section className="relative">
+          <section className="relative min-h-screen">
             <video
-              className="absolute inset-0 w-screen h-screen object-cover"
+              className="absolute inset-0 w-screen min-h-screen object-cover"
               src={home_hero_background}
               muted
               autoPlay
@@ -70,7 +70,7 @@ function Home() {
               preload="auto"
             ></video>
 
-            <div className="relative px-32">
+            <div className="relative min-h-screen">
               <Home_Header />
               <Home_Hero />
             </div>

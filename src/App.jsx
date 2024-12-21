@@ -6,18 +6,34 @@ import DigitalDesign from "./pages/DigitalDesign";
 import CreativeDesign from "./pages/CreativeDesign";
 import VideoProduction from "./pages/VideoProduction";
 import BrandIdentityDesign from "./pages/BrandIdentityDesign";
+import Contactus from "./pages/Contactus";
+import BrandPromotionDesign from "./pages/BrandPromotionDesign";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="digitalmarketing" element={<DigitalMarketing />} />
-        <Route path="uianduxdesign" element={<UiAndUxDesign />} />
-        <Route path="digitaldesign" element={<DigitalDesign />} />
         <Route path="creativedesign" element={<CreativeDesign />} />
+        <Route
+          path="creativedesign/uianduxdesign"
+          element={<UiAndUxDesign />}
+        />
+        <Route
+          path="creativedesign/digitaldesign"
+          element={<DigitalDesign />}
+        />
+        <Route
+          path="creativedesign/brandidentitydesign"
+          element={<BrandIdentityDesign />}
+        />
+        <Route
+          path="creativedesign/brandpromotiondesign"
+          element={<BrandPromotionDesign />}
+        />
+        <Route path="digitalmarketing" element={<DigitalMarketing />} />
         <Route path="videoproduction" element={<VideoProduction />} />
-        <Route path="brandidentitydesign" element={<BrandIdentityDesign />} />
+        <Route path="/contactus" element={<Contactus />} />
       </Routes>
     </BrowserRouter>
   );

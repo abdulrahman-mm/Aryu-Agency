@@ -8,7 +8,7 @@ const DigitalDesignHero = () => {
       <div className="flex items-center justify-between">
         <div className="flex flex-col basis-[40%]">
           <p style={{ letterSpacing: "12px" }} className="text-purple-900">
-            DIGITAL MARKETING
+            CREATIVE DESIGN
           </p>
           <p className="text-7xl">
             <span>Digital</span> <span className="font-semibold">Design</span>
@@ -30,7 +30,7 @@ const DigitalDesignHero = () => {
         ].map((text, index) => (
           <p
             key={index}
-            className="px-5 py-4 hover:text-violet-800 hover:border-violet-800 cursor-pointer text-gray-600 border border-gray-300 rounded-3xl text-xl"
+            className="px-4 py-4 hover:text-violet-800 hover:border-violet-800 cursor-pointer text-gray-600 border border-gray-300 rounded-3xl text-xl"
           >
             {text}
           </p>

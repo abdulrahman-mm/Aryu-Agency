@@ -1,9 +1,10 @@
 import footer_video from "../assets/Video/footer_video.mp4";
 import aryu_logo from "../assets/aryu_logo.png";
+import aryulogo from "../assets/aryulogo.svg";
 
 
 function Footer() {
-  const logos = Array(5).fill(aryu_logo); // Replace with actual image paths
+  const logos = Array(5).fill(aryulogo); // Replace with actual image paths
 
   return (
     <section className="bg-black px-14">
@@ -17,41 +18,43 @@ function Footer() {
           playsInline
         ></video>
 
-        <div className="relative overflow-hidden w-full flex h-full items-center">
-          <div className="flex gap-36 px-20 absolute animate-marquee whitespace-nowrap">
+        <div className="relative overflow-hidden w-full flex h-full items-center ">
+          <div className="flex gap-36 px-20 top-60 absolute animate-marquee whitespace-nowrap">
             {logos.map((logo, index) => (
               <img
                 key={index}
                 src={logo}
                 alt={`Logo ${index + 1}`}
-                className="w-60 h-32 object-cover flex-shrink-0 mr-4"
+                className="h-72 object-cover flex-shrink-0 mr-4"
               />
             ))}
             {logos.map((logo, index) => (
               <img
-                key={index + logos.length}
+                key={index}
                 src={logo}
                 alt={`Logo ${index + 1}`}
-                className="w-60 h-32 object-cover flex-shrink-0 mr-4"
+                className="h-72 object-cover flex-shrink-0 mr-4"
               />
             ))}
-            {logos.map((logo, index) => (
+             {logos.map((logo, index) => (
               <img
-                key={index + logos.length}
+                key={index}
                 src={logo}
                 alt={`Logo ${index + 1}`}
-                className="w-60 h-32 object-cover flex-shrink-0 mr-4"
+                className="h-72 object-cover flex-shrink-0 mr-4"
               />
             ))}
-
-            {logos.map((logo, index) => (
+             {logos.map((logo, index) => (
               <img
-                key={index + logos.length}
+                key={index}
                 src={logo}
                 alt={`Logo ${index + 1}`}
-                className="w-60 h-32 object-cover flex-shrink-0 mr-4"
+                className="h-72 object-cover flex-shrink-0 mr-4"
               />
             ))}
+            
+            
+            
           </div>
         </div>
       </div>

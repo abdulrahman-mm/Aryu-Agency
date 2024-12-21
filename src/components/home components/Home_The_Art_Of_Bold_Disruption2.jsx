@@ -102,16 +102,17 @@ function Home_The_Art_Of_Bold_Disruption2() {
           id="text-div"
           className="absolute text-white w-full h-full flex flex-col items-center justify-center"
         >
-          <p className="text-8xl font-bold">BEGIN YOUR</p>
-          <p className="text-8xl font-bold ">CREATIVE</p>
-          <p className="text-8xl font-bold ">JOURNEY NOW </p>
+          <p className="text-8xl leading-10  font-bold">BEGIN YOUR</p>
+<p className="text-[120px] font-extrabold font-pinyon leading-tight">Creative</p>
+<p className="text-8xl font-bold leading-3">JOURNEY NOW</p>
 
-          <div className="flex items-center gap-5 mt-8">
+
+          <div className="flex items-center gap-5 mt-20">
             <div className="cursor-pointer flex items-center gap-3 bg-white px-5 py-3 rounded-full">
               <p className="text-black font-bold">START PROJECT</p>
               <IoIosArrowDroprightCircle className="text-black text-3xl" />
             </div>
-            <p className="hover:underline cursor-pointer ">
+            <p className="hover:underline underline-offset-4 cursor-pointer ">
               LEARN MORE ABOUT US
             </p>
           </div>
