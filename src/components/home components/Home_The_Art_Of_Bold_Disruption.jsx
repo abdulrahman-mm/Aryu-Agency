@@ -2,36 +2,63 @@ import React from "react";
 import The_Art_of_Bold_Disruption_image2 from "../../assets/The_Art_of_Bold_Disruption_image2.png";
 import The_Art_of_Bold_Disruption_image1 from "../../assets/The_Art_of_Bold_Disruption_image1.png";
 import glowingball from "../../assets/Video/glowingball.mp4";
-import The_Art_of_Bold_Disruption_video from "../../assets/Video/The_Art_of_Bold_Disruption_video.mp4";
 import home_herovideo1 from "../../assets/Video/home_herovideo1.mp4";
-import biokosmetik from '../../assets/biokosmetik.svg'
-import urban from '../../assets/urban.svg'
+import home_herovideo1_compressed from "../../assets/Video/home_herovideo1_compressed.mp4";
+// import biokosmetik from '../../assets/biokosmetik.svg'
+import biokosmetics from "../../assets/biokosmetics.svg";
+import urban from "../../assets/urban.svg";
 // import gadgetmart from '../../assets/gadgetmart.svg'
-import gadgetmart from '../../assets/gadgetmart.png'
-import delta from '../../assets/delta.svg'
-import conversion from '../../assets/conversion.svg'
-import skincare from '../../assets/skincare-usa.svg'
+import gadgetmart from "../../assets/gadgetmart.png";
+import delta from "../../assets/delta.svg";
+import conversion from "../../assets/conversion.svg";
+import skincare from "../../assets/skincare-usa.svg";
+import gsap from "gsap";
+import { useEffect } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+
 
 function Home_The_Art_Of_Bold_Disruption() {
+  const logos = [biokosmetics, urban, gadgetmart, delta, conversion, skincare]; // Replace with actual image paths
 
-    const logos = [biokosmetik,urban,gadgetmart,delta,conversion,skincare] // Replace with actual image paths
-  
+  useEffect(() => {
+    gsap.fromTo(
+      ".text",
+      { opacity: 0,
+        y:40
+       },
+      {
+        opacity: 1,
+        y:0,
+        duration: 5,
+        delay: 5,
+        ease: "back.in",
+        scrollTrigger: {
+          trigger: ".text",
+          start: "top 85%", // Animation starts when the top of the video is 80% visible
+          end: "top 20%", // Animation ends when the top of the video is 20% visible
+          scrub: 3,
+        },
+      }
+    );
+  }, []);
+
+
   return (
     <section className="  py-20">
       <div className="flex flex-col  gap-16">
         <div className="flex px-32 items-center justify-between">
-          <p className="text-6xl basis-[35%] ">The Art of Bold Disruption</p>
+          <p className="text-6xl text basis-[35%] font-sans ">The Power of Daring Ideas </p>
 
-          <p className="basis-[23%] text-gray-600 text-lg">
-            Where creativity and ambition collide, we sculpt your brand into a
-            masterpiece that dazzles and delivers on all fronts.
+          <p className="basis-[30%] text text-gray-600 font-lato text-lg">
+          When creativity meets ambition, we build brands that engage and deliver. We blend innovation with strategy to create brands that resonate and perform.
           </p>
         </div>
 
         <div className="flex px-32 items-center justify-start gap-16">
           <video
-            className="h-60 basis-[50%] w-full rounded-3xl object-cover"
-            src={home_herovideo1}
+            className="h-72 basis-[40%] w-full rounded-3xl object-cover"
+            src={home_herovideo1_compressed}
             muted
             autoPlay
             loop
@@ -42,9 +69,9 @@ function Home_The_Art_Of_Bold_Disruption() {
           <div className="flex flex-col gap-8">
             <div className="flex items-center  gap-16">
               <div className="flex  flex-col  gap-3">
-                <p className="text-4xl ">Crafting Ideas</p>
-                <p className="text-gray-600">
-                  We turn bold ideas into tangible outcomes.
+                <p className="text-4xl font-lato font-medium ">Crafting Ideas</p>
+                <p className="text-gray-600 font-lato">
+                Creative strategies that bring your vision to life and set your brand apart.
                 </p>
               </div>
 
@@ -71,9 +98,9 @@ function Home_The_Art_Of_Bold_Disruption() {
               ></video>
 
               <div className="flex basis-[48%] flex-col gap-3">
-                <p className="text-4xl">Creative Potential</p>
-                <p className="text-gray-600">
-                  We unlock the full power of creativity to elevate your brand
+                <p className="text-4xl font-lato font-medium ">Creative Potential</p>
+                <p className="text-gray-600 font-lato">
+                Driving your brand forward with creativity that sparks innovation.
                 </p>
               </div>
             </div>
@@ -98,8 +125,6 @@ function Home_The_Art_Of_Bold_Disruption() {
                 className=" object-contain bg-no-repeat bg-center bg-fixed "
               />
             ))}
-            
-            
           </div>
         </div>
       </div>

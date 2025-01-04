@@ -11,6 +11,7 @@ import digitalmarketing_contentmarketing from '../../assets/digitalmarketing_con
 import digitalmarketing_emailmarketing from '../../assets/digitalmarketing_emailmarketing.svg'
 import digitalmarketing_influencermarketing from '../../assets/digitalmarketing_influencermarketing.svg'
 import digitalmarketing_localseo from '../../assets/digitalmarketing_localseo.svg'
+import digitalmarketing_targetadcampaign from '../../assets/digitalmarketing_targetadcampaign.svg'
 
 
 
@@ -21,51 +22,51 @@ const Digital_Marketing_the_Art_Of_Bold_Disruption = () => {
     {
       cardTitle: "Search Engine Optimization (SEO)",
       cardDescription:
-        "SEO is like a map for your website, guiding it to the top of search engine results. By using the right keywords, optimizing content, and improving user experience, SEO helps attract more visitors, making it easier for people to discover and engage with your valuable information and services online.",
+        "SEO acts as a map for your website, guiding it to the top of search results. By using the right keywords, optimizing content, and improving user experience, SEO attracts more visitors, therefore making it easier for people to engage with your services. In the end, it boosts visibility and drives organic traffic to your site",
       cardImage: digitalmarketing_seo,
     },
     {
       cardTitle: "Pay-Per-Click Advertising (PPC)",
       cardDescription:
-        "PPC is like paying for a ticket to get noticed online; you only pay when someone clicks, helping your business reach more potential customers quickly and effectively while ensuring you maximize your advertising budget for the best possible return on investment and visibility in a competitive digital landscape!",
+        "PPC is like buying a ticket to get noticed online, paying only when someone clicks. It helps your business reach more potential customers quickly. Consequently, it maximizes your advertising budget, providing the best return on investment and visibility in a competitive digital landscape.",
       cardImage: digitalmarketing_payperclick,
     },
     {
       cardTitle: "Social Media Marketing (SMM)",
       cardDescription:
-        "Social media marketing is like being a storyteller around a campfire on platforms like Instagram, Facebook, and Twitter, among others. You share captivating tales about your brand, engage your audience with exciting visuals and updates, and invite them to share their experiences. This creates a warm community where everyone feels connected and eager to spread the word!",
+        "Social media marketing is like storytelling around a campfire on platforms like Instagram, Facebook, and Twitter. You share captivating stories, engage with visuals and updates, and invite your audience to connect, creating a community eager to spread the word! ",
       cardImage: digitalmarketing_socialmediamarketing,
     },
     {
       cardTitle: "Content Marketing",
       cardDescription:
-        "Content marketing is like sharing an exciting book with friends. Through blogs and videos, you provide valuable insights, stories, and tips that engage your audience, helping them learn and feel connected to your brand along the way!",
+        "In digital marketing, content marketing is essential. By sharing valuable insights, stories, and tips through blogs and videos, you engage your audience, helping them connect with your brand. Consequently, this builds trust and fosters loyalty.",
       cardImage: digitalmarketing_contentmarketing,
     },
     {
       cardTitle: "Email Marketing",
       cardDescription:
-        "Email marketing is like sending a handwritten letter; you share personalized messages and offers directly with your audience, building relationships and keeping them informed about your brand!",
+        "Email marketing is like sending a handwritten letter, delivering personalized messages and offers directly to your audience. It builds relationships, keeps your audience informed, and helps maintain a strong connection with your brand. As a result, it fosters long-term loyalty and engagement. ",
       cardImage: digitalmarketing_emailmarketing,
     },
 
     {
       cardTitle: "Influencer Marketing",
       cardDescription:
-        "Influencer marketing involves brands partnering with popular figures to share authentic stories and experiences. This strategy helps brands connect with their audience and build trust through the recommendations of trusted voices.",
+        "Influencer marketing effectively connects brands with popular figures who share authentic stories and experiences. By partnering with trusted voices, brands not only build trust but also strengthen their connection with the audience. Consequently, leveraging recommendations fosters credibility and drives engagement.",
       cardImage: digitalmarketing_influencermarketing,
     },
     {
       cardTitle: "Local SEO",
       cardDescription:
-        "Local SEO is about making your business visible in your neighborhood. When people search for nearby services, it ensures your business pops up, guiding local customers right to your doorstep and helping you become a trusted part of the community!",
+        "Local SEO is about making your business visible in your neighbourhood. When people search for nearby services, it ensures your business pops up, guiding local customers right to your doorstep and helping you become a trusted part of the community!",
       cardImage: digitalmarketing_localseo,
     },
     {
       cardTitle: "Targeted Ad Campaigns",
       cardDescription:
-        "Targeted ad campaigns are like delivering a custom-made gift to the right person. You craft ads tailored to specific audiences, ensuring they reach genuinely interested people, increasing the chances they’ll engage with your brand!",
-      cardImage: sample11111,
+        "Targeted ad campaigns are like giving a custom-made gift to the right person. You create ads tailored to specific audiences, ensuring they reach genuinely interested individuals. Therefore, this increases the likelihood of engagement and fosters a stronger connection with your brand.",
+      cardImage: digitalmarketing_targetadcampaign,
     },
   ];
 
@@ -156,27 +157,29 @@ const Digital_Marketing_the_Art_Of_Bold_Disruption = () => {
   }
 
   return (
-    <section id="digital-marketing-main" className="mt-32 py-20 px-20">
-      <div className="flex items-center justify-between">
-        <p className="text-6xl basis-[35%] font-semibold">
+    <section className="mt-32 px-5 py-5 md:px-14 md:py-14  lg:px-20 lg:py-20">
+      <div className="flex items-center gap-5 flex-wrap justify-between">
+        <p className="text-3xl md:text-6xl  md:basis-[35%] font-sans font-semibold">
           The Art of Bold Disruption
         </p>
 
-        <p className="basis-[32%]  text-lg">
+        <p className="md:basis-[32%]  text-lg">
         Digital marketing is the art of promoting brands online, using social media, websites, and emails to connect with customers. It's like sharing a story about your product where everyone can listen and engage!	
         </p>
       </div>
 
-      <div className=" flex flex-col gap-5 mt-36">
+      <div className="flex flex-col justify-center items-center gap-10 mt-16 lg:mt-36">
         {cardData.map((item, index) => (
           <div
-            className={`animated-card bg-white rounded-3xl my-8 px-10 py-10 flex ${index % 2 === 0 ? "" : "flex-row-reverse"} justify-between`}
+            className={` bg-white rounded-3xl gap-5 md:gap-10  flex flex-col-reverse md:flex-row ${
+              index % 2 === 0 ? "" : "md:flex-row-reverse"
+            } h-auto lg:h-[90vh] items-center`}
           >
-            <div className="basis-[40%] flex flex-col justify-center gap-10 items-start">
-              <p className="text-5xl font-opensans font-semibold text-black">
+            <div className="basis-[100%] md:basis-[50%] flex flex-col gap-3 md:gap-8 items-start md:text-left">
+              <p className="text-lg md:text-2xl lg:text-4xl font-opensans font-semibold text-black">
                 {item.cardTitle}
               </p>
-              <p className="text-xl font-poppins  text-gray-500">
+              <p className="text-sm md:text-lg font-poppins text-gray-500">
                 {item.cardDescription}
               </p>
 
@@ -191,7 +194,7 @@ const Digital_Marketing_the_Art_Of_Bold_Disruption = () => {
             <img
               src={item.cardImage}
               alt=""
-              className="basis-[50%] object-cover"
+              className="w-full  md:w-1/2 lg:basis-[40%] object-cover rounded-2xl"
             />
           </div>
         ))}

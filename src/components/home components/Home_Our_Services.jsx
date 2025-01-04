@@ -4,22 +4,25 @@ import { IoMdArrowRoundForward } from "react-icons/io";
 import our_services_image1 from "../../assets/our_services_image1.png";
 import our_services_image2 from "../../assets/our_services_image2.png";
 import home_our_services_video from "../../assets/Video/home_our_services_video.mp4";
+import home_our_services_video_compressed from "../../assets/Video/home_our_services_video_compressed.mp4";
 import xx from "../../assets/Video/xx.mp4";
 import sample from "../../assets/Video/sample.mp4";
+import ourservice_creativedesign from "../../assets/Video/ourservice_creativedesign.mp4";
+import ourservice_digitalmarketing from "../../assets/Video/ourservice_digitalmarketing.mp4";
+import ourservice_videoproduction from "../../assets/Video/ourservice_videoproduction.mp4";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Home_Our_Services() {
+function Home_Our_Services({ ourServicesRef }) {
   let navigate = useNavigate();
 
   useEffect(() => {
     const triggers = document.querySelectorAll(".service-item");
 
     triggers.forEach((trigger, index) => {
-
       gsap
         .timeline({
           scrollTrigger: {
@@ -43,7 +46,6 @@ function Home_Our_Services() {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
-
 
   useEffect(() => {
     // Register ScrollTrigger
@@ -75,7 +77,6 @@ function Home_Our_Services() {
     };
   }, []);
 
-
   useEffect(() => {
     gsap.fromTo(
       "#video",
@@ -101,7 +102,8 @@ function Home_Our_Services() {
       start: "top center",
       onEnter: () => {
         gsap.to("#home-services-section", {
-          backgroundColor: "#8b5cf6", // New background color
+          // backgroundColor: "#8b5cf6", // New background color
+          backgroundColor: "#2a014f", // New background color
           duration: 1, // Instantly apply the background color
           color: "white",
         });
@@ -181,8 +183,11 @@ function Home_Our_Services() {
       id="home-services-section"
       className="px-32 py-20  overflow-x-hidden"
     >
-      <div className="services flex items-center justify-between">
-        <div className="flex flex-col text-7xl  font-semibold">
+      <div
+        className="services flex items-center justify-between"
+      >
+        <div         ref={ourServicesRef}
+ className="flex flex-col text-7xl  font-semibold">
           <p>OUR</p>
           <p className="ms-12">SERVICES</p>
         </div>
@@ -197,48 +202,49 @@ function Home_Our_Services() {
           {
             title: "Creative Design",
             description:
-              "Crafting digital experiences where beauty meets ROI, turning heads and unlocking revenue potential with every click.",
-            image: our_services_image1,
+              "Creative design transforms your brand with captivating visuals and impactful solutions. From branding to unique ideas, we bring your vision to life.",
+            video: ourservice_creativedesign,
             tags: [
-              "Creative web design",
-              "Web Development",
-              "Copywriting",
-              "E-Commerce",
-              "Wordpress",
+              "Brand Identity Design",
+              "UI and UX Design",
+              "Digital Design",
+              "Brand Promotion Design",
+              "Interior & Space Design",
             ],
           },
           {
             title: "Digital Marketing",
             description:
-              "Empowering your brand with strategies that deliver measurable growth and lasting impressions.",
-            image: our_services_image2,
+              "Digital marketing goes beyond metrics—it’s about creating meaningful relationships. Let’s craft strategies that connect, engage, and leave a lasting impact.",
+            video: ourservice_digitalmarketing,
             tags: [
-              "SEO Optimization",
-              "Social Media Management",
+              "Search Engine Optimization",
+              "Pay-Per-Click Advertising",
+              "Social Media Marketing",
               "Content Marketing",
-              "Ad Campaigns",
-              "Analytics",
+              "Email Marketing",
             ],
           },
           {
             title: "Video Production",
             description:
-              "Creating stunning visuals and compelling stories to elevate your brand presence.",
-            image: our_services_image2,
+              "Bringing ideas to life with captivating visuals and storytelling. Engaging videos that enhance your brand's impact.",
+            video: ourservice_videoproduction,
             tags: [
-              "Scriptwriting",
-              "Videography",
-              "Post-Production",
-              "Animation",
-              "Editing",
+              "Social Media Video",
+              "Corporate Video",
+              "Ad Film Shoot",
+              "Product Photoshoot",
+              "TV Commercial ",
+              "Video Editing ",
             ],
           },
         ].map((service, index) => (
           <div
             key={index}
-            className="service-item h-[90vh] text-black  flex justify-between gap-10 items-center bg-white px-14 py-5 rounded-3xl"
+            className="service-item rounded-tr-[150px] h-[90vh] text-black  flex justify-between gap-10 items-center bg-white ps-14  rounded-[50px]"
           >
-            <div className="flex flex-col gap-10  basis-[55%] justify-between">
+            <div className="flex  flex-col gap-10  basis-[55%] justify-between">
               <div className="flex flex-col text-6xl">
                 {service.title.split(" ").map((word, i) => (
                   <p key={i}>{word}</p>
@@ -273,22 +279,22 @@ function Home_Our_Services() {
               </button>
             </div>
 
-            {/* <video
-              className=" h-full w-[500px] rounded-tr-[200px]"
-              src={xx}
+            <video
+              className=" h-full w-[600px] object-cover rounded-tr-[150px]"
+              src={service.video}
               autoPlay
               loop
               muted
               playsInline
-            ></video> */}
+            ></video>
           </div>
         ))}
       </div>
 
-      <div id="video" className="relative w-[80vw] h-[400px] mt-72 rounded-3xl">
+      {/* <div id="video" className="relative w-[80vw] h-[400px] mt-72 rounded-3xl">
         <video
           className="absolute object-cover w-full h-full rounded-3xl "
-          src={home_our_services_video}
+          src={home_our_services_video_compressed}
           autoPlay
           loop
           muted
@@ -318,7 +324,7 @@ function Home_Our_Services() {
             Turning Sparks into Spectacles
           </p>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

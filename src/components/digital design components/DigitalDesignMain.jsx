@@ -9,43 +9,43 @@ const DigitalDesignMain = () => {
           {
             cardTitle: "Social Media Posts",
             cardDescription:
-              "The brand steps into the social media spotlight. Each vibrant post captivates the audience, sparking engagement and conversation. As interactions grow, a community forms, transforming the brand from a name into a lively hub of connection and loyalty. That’s the magic of crafted content.",
+              "Social media brings your brand to the spotlight with vibrant posts that spark engagement. As conversations grow, a community forms, turning your brand from a name into a hub of connection and loyalty. This is the power of crafted content.",
             cardImage: sample11111,
           },
           {
             cardTitle: "Web Banners",
             cardDescription:
-              "Web banners act as bold invitations for the brand. Striking designs capture attention and encourage clicks, leading visitors on a journey to uncover exciting offerings. Each banner creates a pathway for connection and discovery.",
+              "Web banners act as bold invitations for your brand. Striking designs capture attention and encourage clicks, leading visitors on a journey to uncover exciting offerings. Therefore, each banner creates a pathway for connection and discovery through creative design.",
             cardImage: digitaldesign_webbanners,
           },
           {
             cardTitle: "Google Ads Design",
             cardDescription:
-              "Powerful Google Ads effectively broaden your reach. Each ad is designed to be attention-grabbing, encouraging customers to take action. When they search for solutions, the brand is right at their fingertips, transforming curiosity into meaningful connections that drive engagement and conversions. We deliver excellence every time.",
+              "Google Ads expand your reach with attention-grabbing designs that encourage customer action. When solutions are searched, your brand is right there, transforming curiosity into valuable connections. Consequently, we deliver excellence every time, driving engagement and conversions with impactful ads.",
             cardImage: digitaldesign_googleadsdesign,
           },
         ];
   return (
-     <section className="mt-32 px-20">
-     <div className="flex items-center justify-between">
-       <p className="text-6xl basis-[35%] font-semibold">The Art of Bold Disruption</p>
+     <section className="mt-32 px-5 py-5 md:px-14 md:py-14  lg:px-20 lg:py-20">
+     <div className="flex items-center gap-5 flex-wrap justify-between">
+       <p className="text-3xl md:text-6xl  md:basis-[35%] font-sans font-semibold">The Art of Bold Disruption</p>
 
-       <p className="basis-[32%] text-gray-600 text-lg">
+       <p className="md:basis-[32%] text-gray-600 text-lg">
          Your vision deserves to be heard. We amplify your ideas with creative
          flair, turning them into a brand voice that commands attention.
        </p>
      </div>
 
-     <div className=" flex flex-col gap-5 mt-36">
+     <div className="flex flex-col justify-center items-center gap-10 mt-16 lg:mt-36">
        {cardData.map((item, index) => (
          <div
-         className={` bg-white rounded-3xl gap-5 items-center my-8 px-10 py-10 flex ${
-          index % 2 === 0 ? "" : "flex-row-reverse"
-        } h-[90vh] justify-between`}
+         className={` bg-white rounded-3xl gap-5 md:gap-10  flex flex-col-reverse md:flex-row ${
+              index % 2 === 0 ? "" : "md:flex-row-reverse"
+            } h-auto lg:h-[90vh] items-center`}
          >
-           <div className="basis-[30%] flex flex-col justify-center gap-10 items-start">
-             <p className="text-5xl font-opensans font-semibold text-black ">{item.cardTitle}</p>
-             <p className="text-xl font-poppins  text-gray-500">{item.cardDescription}</p>
+           <div className="basis-[100%] md:basis-[50%] flex flex-col gap-3 md:gap-8 items-start md:text-left">
+             <p className="text-lg md:text-2xl lg:text-4xl font-opensans font-semibold text-black">{item.cardTitle}</p>
+             <p className="text-sm md:text-lg font-poppins text-gray-500">{item.cardDescription}</p>
 
              {/* <button className="px-8 py-3 border-2 text-gray-500 rounded-full text-xl border-gray-500">
                Find out more
@@ -55,7 +55,7 @@ const DigitalDesignMain = () => {
            <img
              src={item.cardImage}
              alt=""
-             className="basis-[50%] object-cover"
+             className="w-full  md:w-1/2 lg:basis-[40%] object-cover rounded-2xl"
            />
          </div>
        ))}

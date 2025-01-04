@@ -1,6 +1,10 @@
 import From_Concepts_To_Conversions_Hero_img1 from "../../assets/From_Concepts_To_Conversions_Hero_img1.png";
 import From_Concepts_To_Conversions_Hero_img2 from "../../assets/From_Concepts_To_Conversions_Hero_img2.png";
 import From_Concepts_To_Conversions_Hero_img3 from "../../assets/From_Concepts_To_Conversions_Hero_img3.png";
+import video_1 from "../../assets/Video/video_1.mp4";
+import video8 from "../../assets/Video/video8.mp4";
+import video7 from "../../assets/Video/video7.mp4";
+import video6 from "../../assets/Video/video6.mp4";
 
 const DigitalDesignHero = () => {
   return (
@@ -11,7 +15,7 @@ const DigitalDesignHero = () => {
             CREATIVE DESIGN
           </p>
           <p className="text-7xl">
-            <span>Digital</span> <span className="font-semibold">Design</span>
+            <span>Digital</span> <span className="font-semibold text-purple-900">Design</span>
           </p>
         </div>
 
@@ -37,20 +41,48 @@ const DigitalDesignHero = () => {
         ))}
       </div>
 
-      <div className="flex gap-5">
-        <div>
-          <img src={From_Concepts_To_Conversions_Hero_img3} alt="" />
-        </div>
-
-        <div className="flex flex-col gap-5">
-          <img src={From_Concepts_To_Conversions_Hero_img1} alt="" />
-
-          <div className="flex gap-5">
-            <img src={From_Concepts_To_Conversions_Hero_img2} alt="" />
-            <img src={From_Concepts_To_Conversions_Hero_img2} alt="" />
-          </div>
-        </div>
-      </div>
+      <div className="flex flex-col gap-5 md:flex-row">
+                           {/* Left Video Section */}
+                           <div className="flex flex-grow justify-center md:basis-1/5">
+                             <video
+                               src={video_1}
+                               loop
+                               autoPlay
+                               muted
+                               className="h-64 w-full rounded-3xl object-cover md:h-full"
+                             ></video>
+                           </div>
+                   
+                           {/* Right Content Section */}
+                           <div className="flex flex-grow flex-col gap-5 md:basis-3/4">
+                             {/* Main Top Video */}
+                               <video
+                                 src={video7}
+                                 loop
+                                 autoPlay
+                                 muted
+                                 className="w-full flex-grow h-60 object-cover rounded-3xl shadow-lg "
+                               ></video>
+                   
+                             {/* Bottom Video Grid */}
+                             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 ">
+                               <video
+                                 src={video8}
+                                 loop
+                                 autoPlay
+                                 muted
+                                 className="w-full h-60 object-cover rounded-3xl shadow-lg"
+                               ></video>
+                               <video
+                                 src={video6}
+                                 loop
+                                 autoPlay
+                                 muted
+                                 className="w-full h-60 object-cover rounded-3xl shadow-lg"
+                               ></video>
+                             </div>
+                           </div>
+                         </div>
     </section>
   );
 };

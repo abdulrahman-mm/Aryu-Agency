@@ -1,5 +1,5 @@
 import React from "react";
-import aryu_logo from "../assets/aryu_logo.png";
+import aryu_logo from "../assets/aryulogo.svg";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,6 @@ const Header = () => {
 
   function onclickLogo() {
     navigate("/");
-
     window.scrollTo({
       top: 0,
       behavior: "instant",
@@ -16,27 +15,33 @@ const Header = () => {
   }
 
   return (
-    <section className='px-20 py-1 bg-[url("././assets/header_background.png")] bg-cover bg-center'>
+    <section className='px-20 py-3 bg-[url("././assets/header_background.png")] bg-cover bg-center'>
       <div className="flex justify-between items-center ">
         <img
           onClick={onclickLogo}
-          className="cursor-pointer h-14"
+          className="cursor-pointer h-10"
           src={aryu_logo}
           alt=""
         />
 
-        <ul className="flex gap-8 text-white font-semibold">
+<div className="flex gap-20 border text-white px-5 py-3 bg-white/10 border-white/10 rounded-full">
           <Link to="/" className="cursor-pointer">
             Home
           </Link>
-          <Link to="/contactus" className="cursor-pointer">
-            Contact Us
+          <Link  className="cursor-pointer">
+            Services
           </Link>
-        </ul>
+          <Link to="/contactus" className="cursor-pointer">
+            Contact Us 
+          </Link>
+          <Link className="cursor-pointer">Blog</Link>
+        </div>
 
-        {/* <button className="text-white border-2 cursor-pointer border-white rounded-full px-5 py-2">
-          Get Started
-        </button> */}
+        <Link to="/contactus">
+          <button className="text-white border-2 cursor-pointer border-white rounded-full px-5 py-2">
+            Get Started
+          </button>
+        </Link>
       </div>
     </section>
   );

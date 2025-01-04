@@ -1,10 +1,22 @@
 import footer_video from "../assets/Video/footer_video.mp4";
 import aryu_logo from "../assets/aryu_logo.png";
 import aryulogo from "../assets/aryulogo.svg";
-
+import { useNavigate } from "react-router-dom";
 
 function Footer() {
+  let navigate=useNavigate()
   const logos = Array(5).fill(aryulogo); // Replace with actual image paths
+
+
+  const onClickServices=(location)=>{
+
+    navigate(location)
+    window.scrollTo({
+      top:0,
+      behavior:'instant'
+    })
+
+  }
 
   return (
     <section className="bg-black px-14">
@@ -25,7 +37,7 @@ function Footer() {
                 key={index}
                 src={logo}
                 alt={`Logo ${index + 1}`}
-                className="h-72 object-cover flex-shrink-0 mr-4"
+                className="h-24 object-cover flex-shrink-0 mr-4"
               />
             ))}
             {logos.map((logo, index) => (
@@ -33,34 +45,23 @@ function Footer() {
                 key={index}
                 src={logo}
                 alt={`Logo ${index + 1}`}
-                className="h-72 object-cover flex-shrink-0 mr-4"
+                className="h-24 object-cover flex-shrink-0 mr-4"
               />
             ))}
-             {logos.map((logo, index) => (
+            {logos.map((logo, index) => (
               <img
                 key={index}
                 src={logo}
                 alt={`Logo ${index + 1}`}
-                className="h-72 object-cover flex-shrink-0 mr-4"
+                className="h-24 object-cover flex-shrink-0 mr-4"
               />
             ))}
-             {logos.map((logo, index) => (
-              <img
-                key={index}
-                src={logo}
-                alt={`Logo ${index + 1}`}
-                className="h-72 object-cover flex-shrink-0 mr-4"
-              />
-            ))}
-            
-            
-            
           </div>
         </div>
       </div>
 
-      <div className="flex items-center justify-between pt-20 gap-28">
-        <div className="flex flex-col gap-5">
+      <div className="flex items-start justify-between pt-20 gap-28">
+        {/* <div className="flex flex-col gap-5">
           <p className="text-white font-semibold text-lg">COMPANY</p>
           <div className="flex flex-col text-white/60 gap-2">
             <p className="cursor-pointer hover:text-white">ABOUT US</p>
@@ -69,31 +70,27 @@ function Footer() {
             <p className="cursor-pointer hover:text-white">COLLOBORATIONS</p>
             <p className="cursor-pointer hover:text-white">WORK WITH US</p>
           </div>
-        </div>
+        </div> */}
 
         <div className="flex flex-col gap-5">
           <p className="text-white font-semibold text-lg">SERVICES</p>
           <div className="flex flex-col text-white/60 gap-2">
-            <p className="cursor-pointer hover:text-white">
-              STRATEGIC BRANDING
-            </p>
-            <p className="cursor-pointer hover:text-white">WEBSITE UI DESIGN</p>
-            <p className="cursor-pointer hover:text-white">PRINTING DESIGN</p>
-            <p className="cursor-pointer hover:text-white">DIGITAL MARKETING</p>
-            <p className="cursor-pointer hover:text-white">
-              PERSONALIZED SERVICE
-            </p>
+            <p onClick={()=>onClickServices("/videoproduction")} className="cursor-pointer hover:text-white">Video Production</p>
+            <p onClick={()=>onClickServices("/digitalmarketing")} className="cursor-pointer hover:text-white">Digital Marketing</p>
+            <p onClick={()=>onClickServices("/creativedesign")} className="cursor-pointer hover:text-white">Creative Design</p>
+            <p onClick={()=>onClickServices("/creativedesign/uianduxdesign")} className="cursor-pointer hover:text-white">Ui And Ux Design</p>
+            <p onClick={()=>onClickServices("/creativedesign/brandpromotiondesign")} className="cursor-pointer hover:text-white">Brand Promotion Design</p>
           </div>
         </div>
 
         <div className="flex flex-col gap-5">
-          <p className="text-white font-semibold text-lg">CLIENTS</p>
+          <p className="text-white font-semibold text-lg">ADDRESS</p>
           <div className="flex flex-col text-white/60 gap-2">
-            <p className="cursor-pointer hover:text-white">RESOURCES</p>
-            <p className="cursor-pointer hover:text-white">CASE STUDIES</p>
-            <p className="cursor-pointer hover:text-white">TESTIMONIALS</p>
-            <p className="cursor-pointer hover:text-white">WORK PROCESS</p>
-            <p className="cursor-pointer hover:text-white">CUSTOMER SERVICE</p>
+            <p>Aryu Enterprises Private Limited</p>
+            <p>No 33/ 14 , Ground floor, Jayammal St,</p>
+            <p>Ayyavoo Colony, Aminjikarai,</p>
+            <p> Chennai, India.</p>
+            <p>Contact no: 99947 15106 </p>
           </div>
         </div>
 

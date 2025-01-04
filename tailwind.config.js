@@ -7,7 +7,7 @@ export default {
         sans: ['Open Sans', 'sans-serif'],
         poppins:['Poppins','sans-serif'],
         pinyon: ["'Pinyon Script'", "cursive"],
-
+        lato: ['Lato', 'sans-serif'],
       },
       animation: {
         marquee: "marquee 10s linear infinite",

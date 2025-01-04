@@ -1,0 +1,28 @@
+/* Minimal Clock Design */
+
+/* Base clock styling */
+.react-clock {
+  width: 100px !important; /* Adjust size as needed */
+  height: 100px !important;
+  background-color: transparent; /* Minimal background */
+  border: 2px solid #333; /* Border for the clock */
+  border-radius: 50%; /* Circular design */
+  position: relative;
+  box-shadow: none; /* Remove any default shadow */
+}
+
+.react-clock__hand__body {
+  border-radius: 100px;
+}
+
+
+/* Hide the second hand */
+.react-clock__second-hand {
+  display: none; /* Remove the second hand */
+}
+
+/* Remove clock numbers and center dot if present */
+.react-clock__number,
+.react-clock__mark {
+  display: none; /* Hide numbers and marks */
+}

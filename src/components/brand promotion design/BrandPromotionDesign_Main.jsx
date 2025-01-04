@@ -8,72 +8,71 @@ import brandpromotiondesign_newspaperads from "../../assets/brandpromotiondesign
 
 
 
+
 const BrandPromotionDesign_Main = () => {
   let cardData = [
     {
       cardTitle: "Brochure Design",
       cardDescription:
-        "Imagine you’re at a community fair and come across a beautifully designed brochure. It instantly captures your attention and provides a clear overview of the services offered. Your brochure can create that same impact for potential clients, showcasing what makes your brand unique and inviting them to learn more.",
+        "Imagine finding a beautifully designed brochure at a fair, capturing your attention and clearly outlining services. As a result, your brochure can have the same impact, highlighting your brand’s uniqueness and inviting potential clients to explore what you offer and learn more.",
       cardImage: brandpromotiondesign_BrochureDesign,
     },
     {
       cardTitle: "Flyers",
       cardDescription:
-        "For example, the excitement of a big sports event is hard to ignore. Colorful flyers with fun details grab attention and build interest. Our flyers do the same, promoting your events and special offers while making sure your message connects with the community and creates excitement.",
+        "Just like colourful flyers at a sports event, our creative design for flyers grab attention and build excitement. They promote your events and special offers, ensuring your message connects with the community and sparks interest, creating a buzz that can't be ignored.",
       cardImage: brandpromotiondesign_flyers,
     },
     {
       cardTitle: "Standee Design",
       cardDescription:
-        "Walking through a busy shopping mall, a standee for an upcoming concert catches your eye. Its bold design makes you stop, and for 10 seconds, you forget everything around you, captivated by its message. That’s the power of great visuals! Our standee designs aim to create that same effect, capturing attention and encouraging engagement.",
+        "Walking through a mall, a standee catches your eye with its bold design, making you pause. Similarly, our standees capture attention with impactful visuals, encouraging engagement and ensuring your message stands out and leaves a lasting impression.",
       cardImage: brandpromotiondesign_standeedesign,
     },
     {
       cardTitle: "Magazine Cover Design",
       cardDescription:
-        "Driving down a busy highway, you spot a billboard that instantly grabs your attention. It conveys a clear message and makes you want to know more. Our billboard designs strive to have that same impact, offering maximum visibility and ensuring your brand stands out to everyone who passes by.",
+        "Driving down a busy highway, a billboard catches your eye with a clear message. similarly Our billboard designs aim for the same impact, ensuring maximum visibility and making your brand stand out, leaving a lasting impression on everyone who passes by.",
       cardImage: brandpromotiondesign_magazinecoverletter,
     },
     {
       cardTitle: "Newspaper Ads",
       cardDescription:
-        "Remember the local newspaper that featured an ad that caught your attention? It was informative and inviting, making you feel connected. Our newspaper ads serve that purpose, reaching a wide audience and ensuring your brand is recognized and trusted in the community, ultimately driving engagement and growth.",
+        "Remember a newspaper ad that caught your attention with its informative, inviting message? Our newspaper ads do the same, reaching a wide audience, building trust, and ensuring your brand is recognized in the community. As a result, driving engagement and growth.",
       cardImage: brandpromotiondesign_newspaperads,
     },
     {
       cardTitle: "Billboard Design",
       cardDescription:
-        "Driving down a busy highway, you spot a billboard that instantly grabs your attention. It conveys a clear message and makes you want to know more. Our billboard designs strive to have that same impact, offering maximum visibility and ensuring your brand stands out to everyone who passes by.",
+        "Driving on a busy highway, a billboard grabs your attention with a clear message. Likewise, our billboard designs aim for maximum visibility, ensuring your brand stands out and captures the attention of everyone who passes by.",
       cardImage: brandpromotiondesign_billboarddesign,
-    }
- 
-    
+    },
   ];
   return (
-    <section className="mt-32 px-20">
-      <div className="flex items-center justify-between">
-        <p className="text-6xl basis-[35%] font-semibold">
+    <section className="mt-32 px-5 py-5 md:px-14 md:py-14  lg:px-20 lg:py-20">
+      <div className="flex items-center gap-5 flex-wrap justify-between">
+        <p className="text-3xl md:text-6xl  md:basis-[35%] font-sans font-semibold">
           The Art of Bold Disruption
         </p>
 
-        <p className="basis-[32%] text-gray-600 text-lg">
+        <p className="md:basis-[32%] text-lg">
           Your vision deserves to be heard. We amplify your ideas with creative
           flair, turning them into a brand voice that commands attention.
         </p>
       </div>
 
-      <div className=" flex flex-col gap-5 mt-36">
+      <div className="flex flex-col justify-center items-center gap-10 mt-16 lg:mt-36">
         {cardData.map((item, index) => (
           <div
-            className={` bg-white rounded-3xl gap-5 items-center my-8 px-10 py-10 flex ${
-              index % 2 === 0 ? "" : "flex-row-reverse"
-            } h-[90vh] justify-between`}
+            className={` bg-white rounded-3xl gap-5 md:gap-10  flex flex-col-reverse md:flex-row ${
+              index % 2 === 0 ? "" : "md:flex-row-reverse"
+            } h-auto lg:h-[90vh] items-center`}
           >
-            <div className="basis-[40%] flex flex-col justify-center gap-10 items-start">
-              <p className="text-5xl font-opensans font-semibold text-black ">
+            <div className="basis-[100%] md:basis-[50%] flex flex-col gap-3 md:gap-8 items-start md:text-left">
+              <p className="text-lg md:text-2xl lg:text-4xl font-opensans font-semibold text-black ">
                 {item.cardTitle}
               </p>
-              <p className="text-xl font-poppins  text-gray-500">
+              <p className="text-sm md:text-lg font-poppins text-gray-500">
                 {item.cardDescription}
               </p>
 
@@ -85,7 +84,7 @@ const BrandPromotionDesign_Main = () => {
             <img
               src={item.cardImage}
               alt=""
-              className="basis-[50%] object-cover"
+              className="w-full  md:w-1/2 lg:basis-[40%] object-cover rounded-2xl"
             />
           </div>
         ))}

@@ -1,11 +1,14 @@
 import From_Concepts_To_Conversions_Hero_img1 from "../../assets/From_Concepts_To_Conversions_Hero_img1.png";
 import From_Concepts_To_Conversions_Hero_img2 from "../../assets/From_Concepts_To_Conversions_Hero_img2.png";
 import From_Concepts_To_Conversions_Hero_img3 from "../../assets/From_Concepts_To_Conversions_Hero_img3.png";
-
+import video_1 from "../../assets/Video/video_1.mp4";
+import video1 from "../../assets/Video/video1.mp4";
+import video2 from "../../assets/Video/video2.mp4";
+import video3 from "../../assets/Video/video3.mp4";
 
 const CreativeDesign_Hero = () => {
   return (
-     <section className="px-20 mt-20 pb-20">
+    <section className="px-5 py-5 sm:px-10 sm:py-10  md:px-20  md:py-20  ">
       <div className="flex items-center justify-between">
         <div className="flex flex-col basis-[50%]">
           <p style={{ letterSpacing: "12px" }} className="text-purple-900">
@@ -13,7 +16,9 @@ const CreativeDesign_Hero = () => {
           </p>
           <p className="text-7xl">
             <span>Brand</span>{" "}
-            <span className="font-semibold">Promotion Design</span>
+            <span className="font-semibold text-purple-900">
+              Promotion Design
+            </span>
           </p>
         </div>
 
@@ -39,22 +44,50 @@ const CreativeDesign_Hero = () => {
         ))}
       </div>
 
-      <div className="flex gap-5">
-        <div>
-          <img src={From_Concepts_To_Conversions_Hero_img3} alt="" />
+      <div className="flex flex-col gap-5 md:flex-row">
+        {/* Left Video Section */}
+        <div className="flex flex-grow justify-center md:basis-1/5">
+          <video
+            src={video_1}
+            loop
+            autoPlay
+            muted
+            className="h-64 w-full rounded-3xl object-cover md:h-full"
+          ></video>
         </div>
 
-        <div className="flex flex-col gap-5">
-          <img src={From_Concepts_To_Conversions_Hero_img1} alt="" />
+        {/* Right Content Section */}
+        <div className="flex flex-grow flex-col gap-5 md:basis-3/4">
+          {/* Main Top Video */}
+            <video
+              src={video1}
+              loop
+              autoPlay
+              muted
+              className="w-full h-60 flex-grow object-cover rounded-3xl shadow-lg "
+            ></video>
 
-          <div className="flex gap-5">
-            <img src={From_Concepts_To_Conversions_Hero_img2} alt="" />
-            <img src={From_Concepts_To_Conversions_Hero_img2} alt="" />
+          {/* Bottom Video Grid */}
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 ">
+            <video
+              src={video2}
+              loop
+              autoPlay
+              muted
+              className="w-full h-60 object-cover rounded-3xl shadow-lg"
+            ></video>
+            <video
+              src={video3}
+              loop
+              autoPlay
+              muted
+              className="w-full h-60 object-cover rounded-3xl shadow-lg"
+            ></video>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default CreativeDesign_Hero
+export default CreativeDesign_Hero;

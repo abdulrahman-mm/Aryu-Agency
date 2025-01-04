@@ -51,7 +51,7 @@ function Home_The_Art_Of_Bold_Disruption2() {
             muted
           ></video>
           <p className="text-xl text-gray-600">
-            We don't just create campaigns
+          Our focus isn’t just on campaigns
           </p>
         </div>
 
@@ -67,7 +67,8 @@ function Home_The_Art_Of_Bold_Disruption2() {
           ></video>
 
           <p className="text-xl text-gray-600">
-            Your vision deserves to be heard.
+          Your message deserves to be felt  Dare to Create. Dare to Impact.
+
           </p>
         </div>
 
@@ -102,9 +103,9 @@ function Home_The_Art_Of_Bold_Disruption2() {
           id="text-div"
           className="absolute text-white w-full h-full flex flex-col items-center justify-center"
         >
-          <p className="text-8xl leading-10  font-bold">BEGIN YOUR</p>
-<p className="text-[120px] font-extrabold font-pinyon leading-tight">Creative</p>
-<p className="text-8xl font-bold leading-3">JOURNEY NOW</p>
+          <p className="text-8xl   font-bold">BEGIN YOUR</p>
+<p className="text-8xl font-extrabold font-pinyon ">Creative</p>
+<p className="text-8xl font-bold ">JOURNEY NOW</p>
 
 
           <div className="flex items-center gap-5 mt-20">

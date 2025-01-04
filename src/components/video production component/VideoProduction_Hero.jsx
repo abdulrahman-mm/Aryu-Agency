@@ -1,6 +1,10 @@
 import From_Concepts_To_Conversions_Hero_img1 from "../../assets/From_Concepts_To_Conversions_Hero_img1.png";
 import From_Concepts_To_Conversions_Hero_img2 from "../../assets/From_Concepts_To_Conversions_Hero_img2.png";
 import From_Concepts_To_Conversions_Hero_img3 from "../../assets/From_Concepts_To_Conversions_Hero_img3.png";
+import video_2 from "../../assets/Video/video_2.mp4";
+import video3 from "../../assets/Video/video3.mp4";
+import video7 from "../../assets/Video/video7.mp4";
+import video8 from "../../assets/Video/video8.mp4";
 
 const VideoProduction_Hero = () => {
   return (
@@ -12,7 +16,9 @@ const VideoProduction_Hero = () => {
           </p>
           <p className="text-7xl">
             <span>Welcome to the</span>{" "}
-            <span className="font-semibold">digital renaissance</span>
+            <span className="font-semibold text-purple-900">
+              digital renaissance
+            </span>
           </p>
         </div>
 
@@ -38,17 +44,45 @@ const VideoProduction_Hero = () => {
         ))}
       </div>
 
-      <div className="flex gap-5">
-        <div>
-          <img src={From_Concepts_To_Conversions_Hero_img3} alt="" />
+      <div className="flex flex-col gap-5 md:flex-row">
+        {/* Left Video Section */}
+        <div className="flex flex-grow justify-center md:basis-1/5">
+          <video
+            src={video_2}
+            loop
+            autoPlay
+            muted
+            className="h-64 w-full rounded-3xl object-cover md:h-full"
+          ></video>
         </div>
 
-        <div className="flex flex-col gap-5">
-          <img src={From_Concepts_To_Conversions_Hero_img1} alt="" />
+        {/* Right Content Section */}
+        <div className="flex flex-grow flex-col gap-5 md:basis-3/4">
+          {/* Main Top Video */}
+          <video
+            src={video3}
+            loop
+            autoPlay
+            muted
+            className="w-full flex-grow h-60 object-cover rounded-3xl shadow-lg "
+          ></video>
 
-          <div className="flex gap-5">
-            <img src={From_Concepts_To_Conversions_Hero_img2} alt="" />
-            <img src={From_Concepts_To_Conversions_Hero_img2} alt="" />
+          {/* Bottom Video Grid */}
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 ">
+            <video
+              src={video7}
+              loop
+              autoPlay
+              muted
+              className="w-full h-60 object-cover rounded-3xl shadow-lg"
+            ></video>
+            <video
+              src={video8}
+              loop
+              autoPlay
+              muted
+              className="w-full h-60 object-cover rounded-3xl shadow-lg"
+            ></video>
           </div>
         </div>
       </div>

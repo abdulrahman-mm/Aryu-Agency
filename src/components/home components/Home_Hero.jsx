@@ -712,7 +712,8 @@
 import React, { useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import homevideo from "../../assets/Video/homevideo.mp4"; // Replace with your video path
+import homevideo from "../../assets/Video/homevideo.mp4";
+import homevideo_compressed1 from "../../assets/Video/homevideo_compressed1.mp4";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -837,7 +838,7 @@ function Home_Hero() {
     <div className="relative flex items-center justify-center min-h-screen">
       {/* Video element */}
       <video
-        src={homevideo}
+        src={homevideo_compressed1}
         autoPlay
         loop
         muted
@@ -848,14 +849,14 @@ function Home_Hero() {
 
       {/* Text element with dynamic color change */}
       <div
-        className={`absolute w-full text font-semibold font-serif leading-[0.8] text-[150px]`}
+        className={`absolute  text font-poppins font-bold leading-[0.8] text-[102px]`}
         style={{
           zIndex: zIndex.text, // Dynamically change z-index
           color: textColor,    // Dynamically change text color
         }}
       >
-        <p>Create The</p>
-        <p className="text-end uncommon-text">Uncommon</p>
+        <p>SHAPING</p>
+        <p className="text-end uncommon-text">TOMORROW'S BRANDS</p>
       </div>
     </div>
   );

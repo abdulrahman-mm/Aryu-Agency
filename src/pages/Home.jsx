@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import { gsap } from "gsap";
 import Home_Header from "../components/Home_Header";
 import Home_Hero from "../components/home components/Home_Hero";
@@ -9,10 +9,15 @@ import Home_The_Art_Of_Bold_Disruption2 from "../components/home components/Home
 import Home_Insights_Updates from "../components/home components/Home_Insights_Updates";
 import home_hero_background from "../assets/Video/home_hero_background.mp4";
 import Footer from "../components/Footer";
-import aryu_agency_logo from "../assets/aryu_agency_logo.png";
+import aryulogo from "../assets/aryulogo.svg";
+import layer from "../assets/layer_1.svg";
+import Home_Projectfinished from "../components/home components/Home_Projectfinished";
+import Home_Do_You_Have_Any_questions from "../components/home components/Home_Do_You_Have_Any_questions";
 
 function Home() {
   const [loading, setLoading] = useState(true);
+  let ourServicesRef=useRef(null)
+
 
   useEffect(() => {
     // GSAP animation for preloader
@@ -28,7 +33,7 @@ function Home() {
           scale: 0.5, // Start smaller
         },
         {
-          duration:0,
+          duration:0,//
           opacity: 1,
           scale: 2, // Slightly enlarge first
           ease: "power2.out",
@@ -47,13 +52,16 @@ function Home() {
     };
   }, []);
 
+  const handleOurServicesScroll = () => {
+    ourServicesRef.current.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div>
       {loading ? (
         <div className="preloader overflow-hidden flex justify-center items-center h-screen bg-gradient-to-r from-violet-500 to-violet-900">
           <img
             className="preloader-logo object-cover"
-            src={aryu_agency_logo}
+            src={layer}
             alt="Aryu Logo"
           />
         </div>
@@ -71,16 +79,18 @@ function Home() {
             ></video>
 
             <div className="relative min-h-screen">
-              <Home_Header />
+              <Home_Header handleOurServicesScroll={handleOurServicesScroll}/>
               <Home_Hero />
             </div>
           </section>
 
           <Home_The_Art_Of_Bold_Disruption />
           <Home_How_Can_I_Assist_You />
-          <Home_Our_Services />
-          <Home_The_Art_Of_Bold_Disruption2 />
+          <Home_Our_Services ourServicesRef={ourServicesRef}/>
+          <Home_Projectfinished/>
+          {/* <Home_The_Art_Of_Bold_Disruption2 /> */}
           <Home_Insights_Updates />
+          <Home_Do_You_Have_Any_questions/>
           <Footer />
         </>
       )}
