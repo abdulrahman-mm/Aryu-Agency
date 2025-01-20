@@ -2,6 +2,10 @@ import sample11111 from "../../assets/sample11111.png";
 import uianduxdesign_dashboarddesign from "../../assets/uianduxdesign_dashboarddesign.svg";
 import uianduxdesign_mobileappdesign from "../../assets/uianduxdesign_mobileappdesign.svg";
 import uianduxdesign_websitedesign from "../../assets/uianduxdesign_websitedesign.svg";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect } from "react";
+gsap.registerPlugin(ScrollTrigger);
 
 const UiAndUxDesign_Main = () => {
   let cardData = [
@@ -25,8 +29,40 @@ const UiAndUxDesign_Main = () => {
       cardImage: uianduxdesign_dashboarddesign,
     },
   ];
+
+  useEffect(() => {
+    const cards = document.querySelectorAll(".card-item");
+
+    cards.forEach((card, index) => {
+      const animationConfig = [
+        { y: 100, opacity: 0 }, // Slide up
+        { x: -100, opacity: 0 }, // Slide in from left
+        { x: 100, opacity: 0 }, // Slide in from right
+        { scale: 0.8, opacity: 0 }, // Zoom in
+      ];
+
+      gsap.fromTo(
+        card,
+        animationConfig[index % animationConfig.length], // Apply unique animation
+        {
+          y: 0,
+          x: 0,
+          scale: 1,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%", // Trigger when the top of the card reaches 80% of the viewport
+            end: "bottom 60%", // End when the bottom of the card reaches 60% of the viewport
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+  }, []);
   return (
-    <section className="mt-32 px-5 py-5 md:px-14 md:py-14  lg:px-20 lg:py-20">
+    <section className="mt-32 px-5 py-5 md:px-14 md:py-14 overflow-x-hidden  lg:px-20 lg:py-20">
       <div className="flex items-center gap-5 flex-wrap justify-between">
         <p className="text-3xl md:text-6xl  md:basis-[35%] font-sans font-semibold">
           UI and UX Design
@@ -41,7 +77,7 @@ const UiAndUxDesign_Main = () => {
       <div className="flex flex-col justify-center items-center gap-10 mt-16 lg:mt-36">
         {cardData.map((item, index) => (
           <div
-            className={` bg-white rounded-3xl gap-5 md:gap-10  flex flex-col-reverse md:flex-row ${
+            className={` bg-white card-item rounded-3xl gap-5 md:gap-10  flex flex-col-reverse md:flex-row ${
               index % 2 === 0 ? "" : "md:flex-row-reverse"
             } h-auto lg:h-[90vh] items-center`}
           >

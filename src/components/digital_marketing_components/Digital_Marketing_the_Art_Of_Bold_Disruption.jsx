@@ -3,7 +3,6 @@ import sample11111 from "../../assets/sample11111.png";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import digitalmarketing_seo from '../../assets/digitalmarketing_seo.svg'
 import digitalmarketing_payperclick from '../../assets/digitalmarketing_payperclick.svg'
 import digitalmarketing_socialmediamarketing from '../../assets/digitalmarketing_socialmediamarketing.svg'
@@ -12,7 +11,8 @@ import digitalmarketing_emailmarketing from '../../assets/digitalmarketing_email
 import digitalmarketing_influencermarketing from '../../assets/digitalmarketing_influencermarketing.svg'
 import digitalmarketing_localseo from '../../assets/digitalmarketing_localseo.svg'
 import digitalmarketing_targetadcampaign from '../../assets/digitalmarketing_targetadcampaign.svg'
-
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger)
 
 
 const Digital_Marketing_the_Art_Of_Bold_Disruption = () => {
@@ -70,62 +70,71 @@ const Digital_Marketing_the_Art_Of_Bold_Disruption = () => {
     },
   ];
 
-  // colorchanging
+  
+
+  // useEffect(() => {
+  //   const triggers = document.querySelectorAll(".animated-card");
+
+  //   triggers.forEach((trigger, index) => {
+  //     const isLast = index === triggers.length - 1;
+
+  //     gsap
+  //       .timeline({
+  //         scrollTrigger: {
+  //           trigger: trigger,
+  //           start: "top top", // Trigger when the element's top hits the viewport top
+  //           end: "+=600", // Adjust this value to match the desired pin duration in pixels
+  //           scrub: 3, // Smooth scrubbing for the pin duration
+  //           // pin: !isLast, // Pin all but the last element
+  //           pin: true, // Pin all but the last element
+  //         },
+  //       })
+  //       .to(trigger, {
+  //         opacity: 0, // Fade out the element
+  //         y: 100, // Move element downward
+  //         scale: 0.9, // Shrink the element's size while scrolling
+  //         duration: 1,
+  //       });
+  //   });
+
+  //   return () => {
+  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   };
+  // }, []);
+
   useEffect(() => {
-    ScrollTrigger.create({
-      trigger: "#digital-marketing-main", // Target the section
-      start: "top 30%",
-      onEnter: () => {
-        gsap.to("#digital-marketing-main", {
-          backgroundColor: "#9B111E", // New background color
-          duration: 1, // Instantly apply the background color
-          color: "white",
-        });
-      },
-      onLeaveBack: () => {
-        gsap.to("#digital-marketing-main", {
-          backgroundColor: "white", // Revert to the original background color
-          duration: 1, // Instantly revert
-          color: "black",
-        });
-      },
-    });
+    const cards = document.querySelectorAll(".card-item");
 
-    // Clean up ScrollTrigger instances on unmount
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
+    cards.forEach((card, index) => {
+      const animationConfig = [
+        { y: 100, opacity: 0 }, // Slide up
+        { x: -100, opacity: 0 }, // Slide in from left
+        { x: 100, opacity: 0 }, // Slide in from right
+        { scale: 0.8, opacity: 0 }, // Zoom in
+      ];
 
-  useEffect(() => {
-    const triggers = document.querySelectorAll(".animated-card");
-
-    triggers.forEach((trigger, index) => {
-      const isLast = index === triggers.length - 1;
-
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: trigger,
-            start: "top top", // Trigger when the element's top hits the viewport top
-            end: "+=600", // Adjust this value to match the desired pin duration in pixels
-            scrub: 3, // Smooth scrubbing for the pin duration
-            // pin: !isLast, // Pin all but the last element
-            pin: true, // Pin all but the last element
-          },
-        })
-        .to(trigger, {
-          opacity: 0, // Fade out the element
-          y: 100, // Move element downward
-          scale: 0.9, // Shrink the element's size while scrolling
+      gsap.fromTo(
+        card,
+        animationConfig[index % animationConfig.length], // Apply unique animation
+        {
+          y: 0,
+          x: 0,
+          scale: 1,
+          opacity: 1,
           duration: 1,
-        });
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%", // Trigger when the top of the card reaches 80% of the viewport
+            end: "bottom 60%", // End when the bottom of the card reaches 60% of the viewport
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
     });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
   }, []);
+
+  
 
   function onClickFindOutMore(title) {
     if (title === "UI and UX Design") {
@@ -157,7 +166,7 @@ const Digital_Marketing_the_Art_Of_Bold_Disruption = () => {
   }
 
   return (
-    <section className="mt-32 px-5 py-5 md:px-14 md:py-14  lg:px-20 lg:py-20">
+    <section className="px-5 py-5 sm:px-10 sm:py-10  md:px-20 overflow-x-hidden  md:py-20">
       <div className="flex items-center gap-5 flex-wrap justify-between">
         <p className="text-3xl md:text-6xl  md:basis-[35%] font-sans font-semibold">
           The Art of Bold Disruption
@@ -171,7 +180,7 @@ const Digital_Marketing_the_Art_Of_Bold_Disruption = () => {
       <div className="flex flex-col justify-center items-center gap-10 mt-16 lg:mt-36">
         {cardData.map((item, index) => (
           <div
-            className={` bg-white rounded-3xl gap-5 md:gap-10  flex flex-col-reverse md:flex-row ${
+            className={` bg-white card-item rounded-3xl gap-5 md:gap-10  flex flex-col-reverse md:flex-row ${
               index % 2 === 0 ? "" : "md:flex-row-reverse"
             } h-auto lg:h-[90vh] items-center`}
           >

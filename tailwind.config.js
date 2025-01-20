@@ -11,14 +11,28 @@ export default {
       },
       animation: {
         marquee: "marquee 10s linear infinite",
+        shine: 'shine 3.5s  ease-out infinite',
+
       },
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-100%)" },
         },
+        shine: {
+          '0%': { left: '-100%' },
+          '60%': { left: '100%' },
+          '100%': { left: '100%' },
+        },
+      },
+      borderWidth: {
+        3: '3px',
       },
     },
   },
   plugins: [],
 };
+
+
+
+

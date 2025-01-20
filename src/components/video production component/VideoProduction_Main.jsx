@@ -6,16 +6,21 @@
 // import videoproduction_tvcommercial from "../../assets/videoproduction_tvcommercial.svg";
 // import videoproduction_productphotoshoot from "../../assets/videoproduction_productphotoshoot.svg";
 
-import videoproduction_adfileshoot from "../../assets/Video/videoproduction_adfileshoot.mp4";
-import videoproduction_corporatelife from "../../assets/Video/videoproduction_corporatelife.mp4";
-import videoproduction_productphotoshoot from "../../assets/Video/videoproduction_productphotoshoot.mp4";
-import videoproduction_brandedcontent from "../../assets/Video/videoproduction_brandedcontent.mp4";
-import videoproduction_editing from "../../assets/Video/videoproduction_editing.mp4";
-import videoproduction_eventvideo from "../../assets/Video/videoproduction_eventvideo.mp4";
-import videoproduction_socialmediavideo from "../../assets/Video/videoproduction_socialmediavideo.gif";
-import videoproduction_motiongraphics from "../../assets/Video/videoproduction_motiongraphics.gif";
-import videoproduction_tvcommercials from "../../assets/Video/videoproduction_tvcommercials.gif";
-import videoproduction_typographyvideo from "../../assets/Video/videoproduction_typographyvideo.mp4";
+// import videoproduction_adfileshoot from "../../assets/Video/videoproduction_adfileshoot.mp4";
+// import videoproduction_corporatelife from "../../assets/Video/videoproduction_corporatelife.mp4";
+// import videoproduction_productphotoshoot from "../../assets/Video/videoproduction_productphotoshoot.mp4";
+// import videoproduction_brandedcontent from "../../assets/Video/videoproduction_brandedcontent.mp4";
+// import videoproduction_editing from "../../assets/Video/videoproduction_editing.mp4";
+// import videoproduction_eventvideo from "../../assets/Video/videoproduction_eventvideo.mp4";
+// import videoproduction_socialmediavideo from "../../assets/Video/videoproduction_socialmediavideo.gif";
+// import videoproduction_motiongraphics from "../../assets/Video/videoproduction_motiongraphics.gif";
+// import videoproduction_tvcommercials from "../../assets/Video/videoproduction_tvcommercials.gif";
+// import videoproduction_typographyvideo from "../../assets/Video/videoproduction_typographyvideo.mp4";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect } from "react";
+gsap.registerPlugin(ScrollTrigger);
+
 
 const VideoProduction_Main = () => {
   let cardData = [
@@ -23,71 +28,104 @@ const VideoProduction_Main = () => {
       cardTitle: "Social Media Video",
       cardDescription:
         "Great content spreads quickly on social media, and delivering the right type is crucial for success. Our Social Media video service, therefore, enhances your brand with engaging, audience-focused content. This approach elevates your marketing efforts, ensuring your message resonates effectively with your audience.",
-      cardImage: videoproduction_socialmediavideo,
+      cardImage: 'Video/videoproduction_socialmediavideo.gif',
     },
     {
       cardTitle: "Corporate Video",
       cardDescription:
         "If a tech company shared inspiring stories of employees working on new ideas and helping the community, it would create stronger connections with clients and employees. Moreover, our Corporate Videos service captures your brand's essence by highlighting your mission and values.",
-      cardImage: videoproduction_corporatelife,
+      cardImage: 'Video/videoproduction_corporatelife.mp4',
     },
     {
       cardTitle: "Ad Film Shoot",
       cardDescription:
         "An eco-friendly brand's ad followed a customer’s journey to sustainability, showcasing positive environmental impact. As a result, captivating visuals inspired eco-conscious choices and support. Our Ad Film Shoot service creates visually stunning, emotionally engaging ads that effectively elevate your brand's message.",
-      cardImage: videoproduction_adfileshoot,
+      cardImage:'Video/videoproduction_adfileshoot.mp4',
     },
     {
       cardTitle: "Motion Graphics",
       cardDescription:
         "Motion graphics are animated visual designs that combine text, imagery, and graphics to convey ideas dynamically. They simplify complex information and enhance storytelling, making them perfect for explainer videos, advertisements, and digital content that engage and captivate audiences.",
-      cardImage: videoproduction_motiongraphics,
+      cardImage: 'Video/videoproduction_motiongraphics.gif',
     },
     {
       cardTitle: "Typography Videos",
       cardDescription:
         "A non-profit used a typography video blending animated text and visuals to share impactful stories, raising awareness and inspiring support. Our Video Production expertise specializes in creating engaging typography videos that elevate your message and drive meaningful audience engagement.",
-      cardImage: videoproduction_typographyvideo,
+      cardImage:'Video/videoproduction_typographyvideo.mp4',
     },
 
     {
       cardTitle: "Product Photoshoot",
       cardDescription:
         "A shop owner transformed their business with a photo shoot showcasing handmade items. As a result, the stunning images attracted customers, turning the shop into a creative hub. Additionally, we provide professional product photography to beautifully highlight your items and boost engagement.",
-      cardImage: videoproduction_productphotoshoot,
+      cardImage: 'Video/videoproduction_productphotoshoot.mp4',
     },
     {
       cardTitle: "Event Video",
       cardDescription:
         "Capture the essence of special moments with our Event Video Services. Whether it's an inspiring corporate conference or a memorable team celebration, we create high-quality videos that preserve every detail—from key presentations to engaging interactions—for lasting memories.",
-      cardImage: videoproduction_eventvideo,
+      cardImage:'Video/videoproduction_eventvideo.mp4',
     },
     {
       cardTitle: "TV Commercial",
       cardDescription:
         "To promote a great product, reaching as many people as possible is key. TV Commercial Services are perfect since everyone has a TV. We craft unique stories that connect with viewers, using creative ideas and smart strategies to make impactful commercials.",
-      cardImage: videoproduction_tvcommercials,
+      cardImage: 'Video/videoproduction_tvcommercials.gif',
     },
     {
       cardTitle: "Branded Content",
       cardDescription:
         "Branded content tells a story that not only connects with the audience but also promotes a brand. It focuses on entertainment or information, building awareness and loyalty. We offer this service to enhance your brand’s narrative, driving meaningful engagement with consumers.",
       // cardImage: sample11111,
-      cardImage: videoproduction_brandedcontent,
+      cardImage: 'Video/videoproduction_brandedcontent.mp4',
     },
     {
       cardTitle: "Editing",
       cardDescription:
         "Editing brings footage together, merging elements seamlessly to create something vibrant and alive. In addition, like two cells forming a new soul, our editing breathes life into your content, delivering a polished and impactful final product that captivates audiences.",
       // cardImage: sample11111,
-      cardImage: videoproduction_editing,
+      cardImage: 'Video/videoproduction_editing.mp4',
     },
   ];
+
+
+  useEffect(() => {
+    const cards = document.querySelectorAll(".card-item");
+
+    cards.forEach((card, index) => {
+      const animationConfig = [
+        { y: 100, opacity: 0 }, // Slide up
+        { x: -100, opacity: 0 }, // Slide in from left
+        { x: 100, opacity: 0 }, // Slide in from right
+        { scale: 0.8, opacity: 0 }, // Zoom in
+      ];
+
+      gsap.fromTo(
+        card,
+        animationConfig[index % animationConfig.length], // Apply unique animation
+        {
+          y: 0,
+          x: 0,
+          scale: 1,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%", // Trigger when the top of the card reaches 80% of the viewport
+            end: "bottom 60%", // End when the bottom of the card reaches 60% of the viewport
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+  }, []);
 
   return (
     <section
       id="video-production-main"
-      className="mt-32 px-5 py-5 md:px-14 md:py-14  lg:px-20 lg:py-20"
+      className="px-5 py-5 sm:px-10 overflow-hidden sm:py-10  md:px-20  md:py-20"
     >
       <div className="flex items-center gap-5 flex-wrap justify-between">
         <p className="text-3xl md:text-6xl  md:basis-[35%] font-sans font-semibold">
@@ -136,7 +174,7 @@ const VideoProduction_Main = () => {
         {cardData.map((item, index) => (
           <div
             key={index}
-            className={`bg-white rounded-3xl gap-5 md:gap-10 flex flex-col-reverse md:flex-row ${
+            className={`bg-white card-item  rounded-3xl gap-5 md:gap-10 flex flex-col-reverse md:flex-row ${
               index % 2 === 0 ? "" : "md:flex-row-reverse"
             } h-auto lg:h-[90vh] items-center w-full`}
           >
